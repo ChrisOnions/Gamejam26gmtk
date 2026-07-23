@@ -21,7 +21,7 @@ var grace_time_left: float = 0.0
 const SPEED = 300.0
 
 func _ready() -> void:
-	top_sand = max_sand
+	top_sand = max_sand /2
 	bottom_sand = 0.0
 	GameManager.player = self
 
@@ -37,8 +37,8 @@ func _physics_process(delta: float) -> void:
 	if not leak_on_top:
 		bottom_sand = max(bottom_sand - leak_rate * delta, 0.0)
 
-	if top_sand <= 0.0:
-		flip()
+	#if top_sand <= 0.0:
+		#flip()
 
 	if top_sand <= 0.0 and bottom_sand <= 0.0:
 		if not is_empty:

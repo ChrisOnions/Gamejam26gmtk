@@ -14,7 +14,3 @@ position = Vector2(294, 101)
 
 [node name="Sand_Waterfall" parent="." unique_id=327898283 instance=ExtResource("3_sugp2")]
 position = Vector2(240, 60)
-
-[node name="ProgressBar" type="ProgressBar" parent="." unique_id=2099815573]
-offset_right = 4.0
-offset_bottom = 27.0

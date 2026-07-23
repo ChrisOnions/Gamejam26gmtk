@@ -7,8 +7,7 @@ func _on_start_b_button_down() -> void:
 
 
 func _on_options_b_button_down() -> void:
-	pass 
-
+	print(DisplayServer.window_get_size())
 
 func _on_exit_b_button_down() -> void:
 	get_tree().quit()
