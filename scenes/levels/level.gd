@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var id:int = 2  # is const but do not know how to export and const
-@export var is_load:bool
+var is_load:bool
 
 func _ready() -> void:
 	EventBus.load_level.connect(_on_load_level)

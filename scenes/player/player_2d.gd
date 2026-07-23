@@ -23,7 +23,7 @@ func _ready() -> void:
 	GameManager.player = self
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("load_level1"):
+	if Input.is_action_just_pressed("load_level1"):  # temperery. not neceser for anythin but debuging
 		EventBus.load_level.emit(1)
 	if Input.is_action_just_pressed("load_level2"):
 		EventBus.load_level.emit(2)
