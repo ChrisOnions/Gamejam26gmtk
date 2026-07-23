@@ -14,7 +14,7 @@ var bottom_sand: float
 var is_empty: bool = false
 var is_refilling: bool = false
 var grace_time_left: float = 0.0
-
+	
 const SPEED = 300.0
 
 func _ready() -> void:
@@ -23,9 +23,10 @@ func _ready() -> void:
 	GameManager.player = self
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_pressed("load_level1"):  # tempery for lode level testing
+	if Input.is_action_just_pressed("load_level1"):
 		EventBus.load_level.emit(1)
-		print("lode level 1")
+	if Input.is_action_just_pressed("load_level2"):
+		EventBus.load_level.emit(2)
 	update_ui()
 	if is_refilling:
 		bottom_sand = min(bottom_sand + refill_rate * delta, max_sand / 2.0)

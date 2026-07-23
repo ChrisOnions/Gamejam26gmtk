@@ -1,15 +1,12 @@
 extends Node2D
 
+@export var current_level:int = 0
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	EventBus.load_level.connect(on_load_level)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-
-# lode an level bast on the id
-func start_level(id:int) -> void:
-	pass
+	
+func on_load_level(level_id:int) -> void:
+	current_level = level_id

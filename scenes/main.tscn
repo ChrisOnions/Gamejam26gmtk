@@ -20,7 +20,16 @@ position = Vector2(240, 60)
 [node name="level_manager" type="Node2D" parent="." unique_id=1489474420]
 script = ExtResource("4_tbgi4")
 
-[node name="level" parent="level_manager" unique_id=1094904817 instance=ExtResource("5_tbgi4")]
+[node name="level1" parent="level_manager" unique_id=1094904817 instance=ExtResource("5_tbgi4")]
+id = 1
 
-[node name="Sand_Waterfall" parent="level_manager/level" unique_id=1256013930 instance=ExtResource("3_sugp2")]
+[node name="Sand_Waterfall" parent="level_manager/level1" unique_id=1256013930 instance=ExtResource("3_sugp2")]
 position = Vector2(166, -51)
+
+[node name="level2" parent="level_manager" unique_id=2137539602 instance=ExtResource("5_tbgi4")]
+
+[node name="Sand" parent="level_manager/level2" unique_id=36391409 instance=ExtResource("2_0wfyh")]
+position = Vector2(180, 119)
+
+[node name="Sand2" parent="level_manager/level2" unique_id=409816089 instance=ExtResource("2_0wfyh")]
+position = Vector2(176, 82)
