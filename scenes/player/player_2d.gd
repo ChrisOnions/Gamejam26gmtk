@@ -6,6 +6,8 @@ class_name PLAYER
 @export var drain_rate: float = 1.0
 @export var refill_rate: float = 2.0
 @export var grace_period: float = 3.0
+@onready var top_bar_ui: ProgressBar = $TopBar
+@onready var bottom_bar_ui: ProgressBar = $BottomBar
 
 var top_sand: float
 var bottom_sand: float
@@ -21,6 +23,7 @@ func _ready() -> void:
 	GameManager.player = self
 
 func _physics_process(delta: float) -> void:
+	update_ui()
 	if is_refilling:
 		bottom_sand = min(bottom_sand + refill_rate * delta, max_sand / 2.0)
 		if bottom_sand >= max_sand / 2.0:
@@ -39,7 +42,7 @@ func _physics_process(delta: float) -> void:
 			if grace_time_left <= 0.0:
 				player_death()
 
-	print("Top: ", int(top_sand), " Bottom: ", int(bottom_sand), " Grace: ", grace_time_left if is_empty else "-")
+	#print("Top: ", int(top_sand), " Bottom: ", int(bottom_sand), " Grace: ", grace_time_left if is_empty else "-")
 
 	var input_dir := Input.get_vector("Move_Left", "Move_Right", "Move_UP", "Move_Down")
 	if input_dir:
@@ -67,3 +70,10 @@ func flip() -> void:
 
 func player_death():
 	queue_free()
+
+func update_ui():
+	print(top_bar_ui)
+	top_bar_ui.max_value = max_sand/2
+	top_bar_ui.value = top_sand
+	bottom_bar_ui.max_value = max_sand/2
+	bottom_bar_ui.value = bottom_sand

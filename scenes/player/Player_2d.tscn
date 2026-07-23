@@ -17,3 +17,15 @@ shape = SubResource("RectangleShape2D_o5qli")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=997297988]
 texture = ExtResource("2_ie5yh")
+
+[node name="TopBar" type="ProgressBar" parent="." unique_id=1303120385]
+offset_left = 64.0
+offset_top = -64.0
+offset_right = 103.0
+offset_bottom = -37.0
+
+[node name="BottomBar" type="ProgressBar" parent="." unique_id=1167082867]
+offset_left = 65.0
+offset_top = 1.0
+offset_right = 104.0
+offset_bottom = 28.0
