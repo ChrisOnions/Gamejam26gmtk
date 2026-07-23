@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://8n1gw17cewh2" path="res://scenes/levels/level.tscn" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://bsd3jifke5tk8" path="res://scenes/game_over.tscn" id="6_tefeu"]
 [ext_resource type="PackedScene" uid="uid://sx1gjjmdbjyf" path="res://scenes/objects/exit.tscn" id="7_o6xl0"]
+[ext_resource type="AudioStream" uid="uid://bkqr7qbwq1xid" path="res://audio/GMTKJam_2026_Song2_HourglassDraining.mp3" id="8_tipki"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tbgi4"]
 
@@ -53,3 +54,7 @@ position = Vector2(176, 82)
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=217236916]
 scale = Vector2(10, 10)
 tile_set = SubResource("TileSet_bhupp")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1349115702]
+stream = ExtResource("8_tipki")
+autoplay = true
