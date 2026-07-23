@@ -1,4 +1,5 @@
 extends Node
+
 const PLAYER_2D = preload("uid://bts4on5khvdh2")
 
 func _ready() -> void:
