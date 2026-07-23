@@ -7,8 +7,8 @@ func _ready() -> void:
 	EventBus.load_level.connect(_on_load_level)
 	is_load = false
 	for obj in get_children():
-		obj.hide()
-		obj.set_process(false)
+		obj.process_mode = Node.PROCESS_MODE_DISABLED
+		obj.visible = false
 
 func _process(delta: float) -> void:
 	pass
@@ -22,11 +22,11 @@ func _on_load_level(level_id:int) -> void:
 func disable_level() -> void:  # disable all the childer of the level
 	is_load = false
 	for obj in get_children():
-		obj.hide()
-		obj.set_process(false)
+		obj.process_mode = Node.PROCESS_MODE_DISABLED
+		obj.visible = false
 	
 func lode_level() -> void:  # loads all the childer of the level
 	is_load = true
 	for obj in get_children():
-		obj.show()
-		obj.set_process(true)
+		obj.process_mode = Node.PROCESS_MODE_INHERIT
+		obj.visible = true
