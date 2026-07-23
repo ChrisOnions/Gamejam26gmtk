@@ -21,7 +21,7 @@ var grace_time_left: float = 0.0
 const SPEED = 300.0
 
 func _ready() -> void:
-	top_sand = max_sand
+	top_sand = max_sand / 2
 	bottom_sand = 0.0
 	GameManager.player = self
 
