@@ -7,6 +7,8 @@ func _ready() -> void:
 	EventBus.load_level.connect(on_load_level)  # makes ti so when load_level is cal current_level is opptated
 	GameManager.level_manager = self
 	
+	EventBus.load_level.connect(on_load_level)  # makes it so when load_level is cal current_level is opptated
+
 func _process(delta: float) -> void:
 	pass
 	
