@@ -1,30 +1,30 @@
 extends CharacterBody2D
 class_name PLAYER
 
+@export var sprite_2d: Sprite2D
+@export var max_sand: float = 10.0
+@export var drain_rate: float = 1.0     # sand lost per second
+@export var refill_rate: float = 4.0    # sand gained per second while in waterfall
 
-@export var sprite_2d: Sprite2D 
-
-@onready var head_timer: Timer = $Head_Timer
-@onready var flip_timer: Timer = $Flip_Timer
-
-@export var max_sand: float
 var current_sand: float
+var is_refilling: bool = false
 
-var Sand_refilling : bool = true  
-
-var Player_2d : CharacterBody2D 
 const SPEED = 300.0
 
 func _ready() -> void:
 	current_sand = max_sand
-	Sand_refilling = false
 	GameManager.player = self
 
 func _physics_process(delta: float) -> void:
-	if flip_timer.time_left > 0:
-		print("Flip - " , int(flip_timer.time_left))
-	elif head_timer.time_left > 0:
-		print("Head - " ,int(head_timer.time_left))
+	if is_refilling:
+		current_sand = min(current_sand + refill_rate * delta, max_sand)
+	else:
+		current_sand = max(current_sand - drain_rate * delta, 0.0)
+		if current_sand <= 0.0:
+			player_death()
+
+	print(current_sand)  # swap for a sprite/UI update later
+
 	var input_dir := Input.get_vector("Move_Left", "Move_Right", "Move_UP", "Move_Down")
 	if input_dir:
 		velocity = input_dir * SPEED
@@ -35,24 +35,11 @@ func _physics_process(delta: float) -> void:
 func add_sand():
 	max_sand += 1
 
-func refill_sand():
-	flip_timer.stop()
-	Sand_refilling = true
-	while Sand_refilling and current_sand < max_sand:
-		current_sand += 0.5
-		if current_sand >= max_sand:
-			current_sand = max_sand
-			Sand_refilling = false
-		await get_tree().create_timer(0.05).timeout
-	head_timer.start(max_sand)
+func start_refill() -> void:
+	is_refilling = true
+
+func stop_refill() -> void:
+	is_refilling = false
 
 func player_death():
 	queue_free()
-
-func _on_head_timer_timeout() -> void:
-	head_timer.stop()
-	flip_timer.start(max_sand)
-
-func _on_flip_timer_timeout() -> void:
-	flip_timer.stop()
-	player_death()

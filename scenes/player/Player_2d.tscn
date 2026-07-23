@@ -20,7 +20,6 @@ shape = SubResource("RectangleShape2D_o5qli")
 texture = ExtResource("2_ie5yh")
 
 [node name="Head_Timer" type="Timer" parent="." unique_id=559009034]
-autostart = true
 
 [node name="Flip_Timer" type="Timer" parent="." unique_id=1156739409]
 
