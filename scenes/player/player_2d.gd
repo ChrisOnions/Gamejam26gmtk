@@ -23,6 +23,9 @@ func _ready() -> void:
 	GameManager.player = self
 
 func _physics_process(delta: float) -> void:
+	if Input.is_action_pressed("load_level1"):  # tempery for lode level testing
+		EventBus.load_level.emit(1)
+		print("lode level 1")
 	update_ui()
 	if is_refilling:
 		bottom_sand = min(bottom_sand + refill_rate * delta, max_sand / 2.0)
