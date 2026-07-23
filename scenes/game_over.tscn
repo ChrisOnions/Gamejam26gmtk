@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://bsd3jifke5tk8"]
+
+[ext_resource type="Script" uid="uid://bi8xm0qcm7agj" path="res://scripts/restart_game.gd" id="1_xeevv"]
+
+[node name="GameOver" type="Control" unique_id=568980725]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_xeevv")
+
+[node name="BoxContainer" type="BoxContainer" parent="." unique_id=306570225]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 426.0
+offset_top = 205.0
+offset_right = 686.0
+offset_bottom = 258.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BoxContainer" unique_id=1857535095]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="BoxContainer/VBoxContainer" unique_id=326795685]
+layout_mode = 2
+vertical_alignment = 1
+
+[node name="Restart_B" type="Button" parent="BoxContainer/VBoxContainer" unique_id=318229864]
+layout_mode = 2
+text = "Restart"
+
+[node name="Exit_B" type="Button" parent="BoxContainer/VBoxContainer" unique_id=1468452191]
+layout_mode = 2
+text = "Exit"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1472039047]
+layout_mode = 0
+offset_left = 377.0
+offset_top = 107.0
+offset_right = 801.0
+offset_bottom = 181.0
+theme_override_font_sizes/normal_font_size = 48
+bbcode_enabled = true
+text = "[wave]Your time ran out[/wave]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="BoxContainer/VBoxContainer/Restart_B" to="." method="onbuttonpressed"]

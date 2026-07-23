@@ -7,6 +7,8 @@ class_name PLAYER
 @export var leak_rate: float = 1.0    
 @export var grace_period: float = 3.0
 @export var refill_rate: float = 2.0
+@export var current_level: int = 1
+@export var gameover: bool
 
 @onready var top_bar: ProgressBar = $TopBar
 @onready var bottom_bar: ProgressBar = $BottomBar
@@ -17,6 +19,7 @@ var bottom_sand: float
 var leak_on_top: bool = true
 var is_empty: bool = false
 var grace_time_left: float = 0.0
+var resetbutton = preload("res://scenes/game_over.tscn")
 	
 const SPEED = 300.0
 
@@ -25,6 +28,13 @@ func _ready() -> void:
 	bottom_sand = 0.0
 	GameManager.player = self
 
+func _process(delta: float) -> void:
+	if top_sand == 0 && bottom_sand == 0:
+		gameover = true
+		print("Spawning reset button")
+		var spawnedbutton = resetbutton.instantiate()
+		add_child(spawnedbutton)
+	
 func _physics_process(delta: float) -> void:
 	uiupdate()
 	if Input.is_action_just_pressed("load_level1"):  # temperery. not neceser for anythin but debuging
