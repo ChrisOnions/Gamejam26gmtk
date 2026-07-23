@@ -8,6 +8,7 @@ size = Vector2(125, 126)
 
 [node name="Player2d" type="CharacterBody2D" unique_id=1764116379]
 script = ExtResource("1_as2q7")
+max_sand = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=452951448]
 position = Vector2(-0.5, -1)
@@ -15,3 +16,11 @@ shape = SubResource("RectangleShape2D_o5qli")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=997297988]
 texture = ExtResource("2_ie5yh")
+
+[node name="Head_Timer" type="Timer" parent="." unique_id=559009034]
+autostart = true
+
+[node name="Flip_Timer" type="Timer" parent="." unique_id=1156739409]
+
+[connection signal="timeout" from="Head_Timer" to="." method="_on_head_timer_timeout"]
+[connection signal="timeout" from="Flip_Timer" to="." method="_on_flip_timer_timeout"]
