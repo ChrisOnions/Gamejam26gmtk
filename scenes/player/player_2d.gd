@@ -2,28 +2,44 @@ extends CharacterBody2D
 class_name PLAYER
 
 @export var sprite_2d: Sprite2D
-@export var max_sand: float = 10.0
-@export var drain_rate: float = 1.0     # sand lost per second
-@export var refill_rate: float = 4.0    # sand gained per second while in waterfall
+@export var max_sand: float = 60.0
+@export var drain_rate: float = 1.0
+@export var refill_rate: float = 2.0
+@export var grace_period: float = 3.0
 
-var current_sand: float
+var top_sand: float
+var bottom_sand: float
+var is_empty: bool = false
 var is_refilling: bool = false
+var grace_time_left: float = 0.0
 
 const SPEED = 300.0
 
 func _ready() -> void:
-	current_sand = max_sand
+	top_sand = max_sand / 2.0
+	bottom_sand = 0.0
 	GameManager.player = self
 
 func _physics_process(delta: float) -> void:
 	if is_refilling:
-		current_sand = min(current_sand + refill_rate * delta, max_sand)
+		bottom_sand = min(bottom_sand + refill_rate * delta, max_sand / 2.0)
+		if bottom_sand >= max_sand / 2.0:
+			flip()
+	elif top_sand > 0.0:
+		var amount = min(drain_rate * delta, top_sand)
+		top_sand -= amount
+		bottom_sand += amount
+		is_empty = false
 	else:
-		current_sand = max(current_sand - drain_rate * delta, 0.0)
-		if current_sand <= 0.0:
-			player_death()
+		if not is_empty:
+			is_empty = true
+			grace_time_left = grace_period
+		else:
+			grace_time_left -= delta
+			if grace_time_left <= 0.0:
+				player_death()
 
-	print(current_sand)  # swap for a sprite/UI update later
+	print("Top: ", int(top_sand), " Bottom: ", int(bottom_sand), " Grace: ", grace_time_left if is_empty else "-")
 
 	var input_dir := Input.get_vector("Move_Left", "Move_Right", "Move_UP", "Move_Down")
 	if input_dir:
@@ -32,14 +48,22 @@ func _physics_process(delta: float) -> void:
 		velocity = velocity.move_toward(Vector2.ZERO, SPEED)
 	move_and_slide()
 
-func add_sand():
-	max_sand += 1
+func add_sand(amount: float = 1.0) -> void:
+	max_sand += amount
+	bottom_sand = min(bottom_sand + amount, max_sand / 2.0)
 
 func start_refill() -> void:
-	is_refilling = true
+	if not is_refilling:
+		bottom_sand = 0.0
+		is_refilling = true
 
 func stop_refill() -> void:
 	is_refilling = false
+
+func flip() -> void:
+	top_sand = bottom_sand
+	bottom_sand = 0.0
+	is_empty = false
 
 func player_death():
 	queue_free()
