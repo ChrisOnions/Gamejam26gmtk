@@ -82,6 +82,6 @@ func player_death():
 
 func uiupdate():
 	top_bar.max_value = max_sand / 2
-	bottom_bar.max_value = max_sand/ 2 
+	bottom_bar.max_value = max_sand / 2 
 	top_bar.value= top_sand
 	bottom_bar.value = bottom_sand
