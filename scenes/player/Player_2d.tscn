@@ -10,6 +10,7 @@ size = Vector2(125, 126)
 script = ExtResource("1_as2q7")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1227124696]
+position_smoothing_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=452951448]
 position = Vector2(-0.5, -1)
