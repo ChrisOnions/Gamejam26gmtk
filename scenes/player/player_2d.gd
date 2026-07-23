@@ -3,10 +3,13 @@ class_name PLAYER
 
 @export var sprite_2d: Sprite2D
 @export var max_sand: float = 10.0
-@export var flow_rate: float = 1.0     # sand moving top -> bottom per second
-@export var leak_rate: float = 1.0     # sand lost from bottom when leak is on bottom
+@export var flow_rate: float = 1.0   
+@export var leak_rate: float = 1.0    
 @export var grace_period: float = 3.0
 @export var refill_rate: float = 2.0
+
+@onready var top_bar: ProgressBar = $TopBar
+@onready var bottom_bar: ProgressBar = $BottomBar
 
 var is_refilling: bool = false
 var top_sand: float
@@ -23,6 +26,7 @@ func _ready() -> void:
 	GameManager.player = self
 
 func _physics_process(delta: float) -> void:
+	uiupdate()
 	var moved = min(flow_rate * delta, top_sand)
 	top_sand -= moved
 	bottom_sand += moved
@@ -47,7 +51,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		is_empty = false
 
-	print("Top: ", int(top_sand), " Bottom: ", int(bottom_sand), " Leak on top: ", leak_on_top, " Grace: ", grace_time_left if is_empty else "-")
+	#print("Top: ", int(top_sand), " Bottom: ", int(bottom_sand), " Leak on top: ", leak_on_top, " Grace: ", grace_time_left if is_empty else "-")
 
 	var input_dir := Input.get_vector("Move_Left", "Move_Right", "Move_UP", "Move_Down")
 	if input_dir:
@@ -67,10 +71,17 @@ func flip() -> void:
 	bottom_sand = temp
 
 func start_refill() -> void:
-	flip()
+	if not leak_on_top:
+		flip()
 	is_refilling = true
 
 func stop_refill() -> void:
 	is_refilling = false
 func player_death():
 	queue_free()
+
+func uiupdate():
+	top_bar.max_value = max_sand / 2
+	bottom_bar.max_value = max_sand/ 2 
+	top_bar.value= top_sand
+	bottom_bar.value = bottom_sand
