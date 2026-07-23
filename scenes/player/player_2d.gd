@@ -21,10 +21,10 @@ func _ready() -> void:
 	GameManager.player = self
 
 func _physics_process(delta: float) -> void:
-	if head_timer.time_left > 0:
-		print("Head - " ,int(head_timer.time_left))
-	elif flip_timer.time_left > 0:
+	if flip_timer.time_left > 0:
 		print("Flip - " , int(flip_timer.time_left))
+	elif head_timer.time_left > 0:
+		print("Head - " ,int(head_timer.time_left))
 	var input_dir := Input.get_vector("Move_Left", "Move_Right", "Move_UP", "Move_Down")
 	if input_dir:
 		velocity = input_dir * SPEED
@@ -46,9 +46,6 @@ func refill_sand():
 		await get_tree().create_timer(0.05).timeout
 	head_timer.start(max_sand)
 
-func Remove_sand():
-	pass
-	
 func player_death():
 	queue_free()
 
