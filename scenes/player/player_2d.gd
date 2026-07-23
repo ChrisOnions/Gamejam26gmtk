@@ -17,7 +17,7 @@ var bottom_sand: float
 var leak_on_top: bool = true
 var is_empty: bool = false
 var grace_time_left: float = 0.0
-
+	
 const SPEED = 300.0
 
 func _ready() -> void:
@@ -26,11 +26,11 @@ func _ready() -> void:
 	GameManager.player = self
 
 func _physics_process(delta: float) -> void:
-	uiupdate()
-	var moved = min(flow_rate * delta, top_sand)
-	top_sand -= moved
-	bottom_sand += moved
-
+	if Input.is_action_just_pressed("load_level1"):  # temperery. not neceser for anythin but debuging
+		EventBus.load_level.emit(1)
+	if Input.is_action_just_pressed("load_level2"):
+		EventBus.load_level.emit(2)
+	update_ui()
 	if is_refilling:
 		top_sand = min(top_sand + refill_rate * delta, max_sand)
 
