@@ -2,67 +2,101 @@ extends CharacterBody2D
 class_name PLAYER
 
 @export var sprite_2d: Sprite2D
-@export var max_sand: float = 10.0
-@export var flow_rate: float = 1.0   
-@export var leak_rate: float = 1.0    
+@export var max_capacity: float = 10.0
+@export var flow_rate: float = 1.0
+@export var leak_rate: float = 1.0
 @export var grace_period: float = 3.0
 @export var refill_rate: float = 2.0
 @export var current_level: int = 1
-@export var gameover: bool
 
 @onready var top_bar: ProgressBar = $TopBar
 @onready var bottom_bar: ProgressBar = $BottomBar
 
+var side_a_sand: float
+var side_b_sand: float
+
+var is_flipped: bool = false
 var is_refilling: bool = false
-var top_sand: float
-var bottom_sand: float
-var leak_on_top: bool = true
-var is_empty: bool = false
+var gameover: bool = false
 var grace_time_left: float = 0.0
-var resetbutton = preload("res://scenes/game_over.tscn")
-	
+var is_sand_moving: bool = false
+
 const SPEED = 300.0
+var resetbutton = preload("res://scenes/game_over.tscn")
 
 func _ready() -> void:
-	top_sand = max_sand /2
-	bottom_sand = 0.0
+	side_a_sand = max_capacity / 2.0
+	side_b_sand = 0.0
 	GameManager.player = self
 
 func _process(delta: float) -> void:
-	if top_sand == 0 && bottom_sand == 0:
+	if side_a_sand <= 0.0 and side_b_sand <= 0.0 and not gameover:
 		gameover = true
 		print("Spawning reset button")
 		var spawnedbutton = resetbutton.instantiate()
 		add_child(spawnedbutton)
-	
+
 func _physics_process(delta: float) -> void:
-	uiupdate()
-	if Input.is_action_just_pressed("load_level1"):  # temperery. not neceser for anythin but debuging
+	ui_update()
+	handle_sand_mechanics(delta)
+	handle_movement()
+	
+	if Input.is_action_just_pressed("Interact"):
+		flip()
+
+	if Input.is_action_just_pressed("load_level1"):
 		EventBus.load_level.emit(1)
 	if Input.is_action_just_pressed("load_level2"):
 		EventBus.load_level.emit(2)
 
+func handle_sand_mechanics(delta: float) -> void:
+	var prev_a = side_a_sand
+	var prev_b = side_b_sand
+
 	if is_refilling:
-		top_sand = min(top_sand + refill_rate * delta, max_sand)
+		if not is_flipped:
+			side_a_sand = min(side_a_sand + refill_rate * delta, max_capacity / 2.0)
+		else:
+			side_b_sand = min(side_b_sand + refill_rate * delta, max_capacity / 2.0)
 
-	if not leak_on_top:
-		bottom_sand = max(bottom_sand - leak_rate * delta, 0.0)
+	if not is_flipped:
+		var flow_amount = min(side_a_sand, flow_rate * delta)
+		var space_in_b = (max_capacity / 2.0) - side_b_sand
+		flow_amount = min(flow_amount, space_in_b)
+		
+		side_a_sand -= flow_amount
+		side_b_sand += flow_amount
+	else:
+		if side_a_sand > 0.0:
+			side_a_sand = max(side_a_sand - leak_rate * delta, 0.0)
+		else:
+			side_b_sand = max(side_b_sand - leak_rate * delta, 0.0)
 
-	#if top_sand <= 0.0:
-		#flip()
+	is_sand_moving = (side_a_sand != prev_a) or (side_b_sand != prev_b)
 
-	if top_sand <= 0.0 and bottom_sand <= 0.0:
-		if not is_empty:
-			is_empty = true
+	if side_a_sand <= 0.0 and side_b_sand <= 0.0:
+		if grace_time_left == 0.0 and not gameover:
 			grace_time_left = grace_period
 		else:
 			grace_time_left -= delta
 			if grace_time_left <= 0.0:
 				player_death()
 	else:
-		is_empty = false
+		grace_time_left = 0.0
 
-	#print("Top: ", int(top_sand), " Bottom: ", int(bottom_sand), " Leak on top: ", leak_on_top, " Grace: ", grace_time_left if is_empty else "-")
+func flip() -> void:
+	is_flipped = not is_flipped
+	
+	if sprite_2d:
+		sprite_2d.flip_v = is_flipped
+
+	print("Flipped! Inverted (Leaking Side A): ", is_flipped)
+
+func handle_movement() -> void:
+	if not is_sand_moving:
+		velocity = velocity.move_toward(Vector2.ZERO, SPEED)
+		move_and_slide()
+		return
 
 	var input_dir := Input.get_vector("Move_Left", "Move_Right", "Move_UP", "Move_Down")
 	if input_dir:
@@ -72,27 +106,28 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func add_sand(amount: float = 1.0) -> void:
-	max_sand += amount
-	top_sand = min(top_sand + amount, max_sand)
-
-func flip() -> void:
-	leak_on_top = not leak_on_top
-	var temp = top_sand
-	top_sand = bottom_sand
-	bottom_sand = temp
+	max_capacity += amount
+	if not is_flipped:
+		side_a_sand = min(side_a_sand + amount, max_capacity / 2.0)
+	else:
+		side_b_sand = min(side_b_sand + amount, max_capacity / 2.0)
 
 func start_refill() -> void:
-	if not leak_on_top:
-		flip()
 	is_refilling = true
 
 func stop_refill() -> void:
 	is_refilling = false
-func player_death():
+
+func player_death() -> void:
 	queue_free()
 
-func uiupdate():
-	top_bar.max_value = max_sand / 2
-	bottom_bar.max_value = max_sand / 2 
-	top_bar.value= top_sand
-	bottom_bar.value = bottom_sand
+func ui_update() -> void:
+	top_bar.max_value = max_capacity / 2.0
+	bottom_bar.max_value = max_capacity / 2.0
+	
+	if not is_flipped:
+		top_bar.value = side_a_sand
+		bottom_bar.value = side_b_sand
+	else:
+		top_bar.value = side_b_sand
+		bottom_bar.value = side_a_sand

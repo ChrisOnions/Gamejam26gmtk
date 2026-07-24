@@ -8,7 +8,7 @@ func _ready() -> void:
 	is_load = false
 	for obj in get_children():
 		obj.process_mode = Node.PROCESS_MODE_DISABLED
-		obj.visible = false
+		#obj.visible = false
 
 func _process(delta: float) -> void:
 	pass
@@ -23,10 +23,10 @@ func disable_level() -> void:  # disable all the childer of the level
 	is_load = false
 	for obj in get_children():
 		obj.process_mode = Node.PROCESS_MODE_DISABLED
-		obj.visible = false
+		#obj.visible = false
 	
 func lode_level() -> void:  # loads all the childer of the level
 	is_load = true
 	for obj in get_children():
 		obj.process_mode = Node.PROCESS_MODE_INHERIT
-		obj.visible = true
+		#obj.visible = true

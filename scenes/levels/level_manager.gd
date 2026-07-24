@@ -9,8 +9,6 @@ func _ready() -> void:
 	
 	EventBus.load_level.connect(on_load_level)  # makes it so when load_level is cal current_level is opptated
 
-func _process(delta: float) -> void:
-	pass
 	
 func on_load_level(level_id:int) -> void:
 	current_level = level_id

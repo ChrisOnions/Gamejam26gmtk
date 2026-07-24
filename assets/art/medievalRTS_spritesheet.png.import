@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://21xrwmjol2if"
-path="res://.godot/imported/New_Piskel12.png-30e1ef6c83f9ed2a7a12e95115d925a5.ctex"
+uid="uid://durxj18nosdnp"
+path="res://.godot/imported/medievalRTS_spritesheet.png-ed593c39f525a2ab37bd18d3b83f330a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/New_Piskel12.png"
-dest_files=["res://.godot/imported/New_Piskel12.png-30e1ef6c83f9ed2a7a12e95115d925a5.ctex"]
+source_file="res://assets/art/medievalRTS_spritesheet.png"
+dest_files=["res://.godot/imported/medievalRTS_spritesheet.png-ed593c39f525a2ab37bd18d3b83f330a.ctex"]
 
 [params]
 

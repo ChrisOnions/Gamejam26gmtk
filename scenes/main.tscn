@@ -6,16 +6,6 @@
 [ext_resource type="Script" uid="uid://tf5i3vopi7d6" path="res://scenes/levels/level_manager.gd" id="4_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://8n1gw17cewh2" path="res://scenes/levels/level.tscn" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://bsd3jifke5tk8" path="res://scenes/game_over.tscn" id="6_tefeu"]
-[ext_resource type="PackedScene" uid="uid://sx1gjjmdbjyf" path="res://scenes/objects/exit.tscn" id="7_o6xl0"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tbgi4"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tefeu"]
-texture = SubResource("CompressedTexture2D_tbgi4")
-0:0/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_bhupp"]
-sources/1 = SubResource("TileSetAtlasSource_tefeu")
 
 [node name="Main" type="Node" unique_id=1486335504]
 script = ExtResource("1_o5qli")
@@ -30,29 +20,12 @@ position = Vector2(770, 261)
 
 [node name="level_manager" type="Node2D" parent="." unique_id=1489474420]
 script = ExtResource("4_tbgi4")
+current_level = 1
 
-[node name="level1" parent="level_manager" unique_id=1094904817 instance=ExtResource("5_tbgi4")]
-visible = false
+[node name="levelOne" parent="level_manager" unique_id=1094904817 instance=ExtResource("5_tbgi4")]
 id = 1
 
-[node name="Sand_Waterfall" parent="level_manager/level1" unique_id=1256013930 instance=ExtResource("3_sugp2")]
-position = Vector2(166, -51)
-
-[node name="exit" parent="level_manager/level1" unique_id=2140295111 instance=ExtResource("7_o6xl0")]
-position = Vector2(694, 66)
-
-[node name="level2" parent="level_manager" unique_id=2137539602 instance=ExtResource("5_tbgi4")]
-visible = false
-
-[node name="Sand" parent="level_manager/level2" unique_id=36391409 instance=ExtResource("2_0wfyh")]
-position = Vector2(180, 119)
-
-[node name="Sand2" parent="level_manager/level2" unique_id=409816089 instance=ExtResource("2_0wfyh")]
-position = Vector2(176, 82)
-
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=217236916]
-scale = Vector2(10, 10)
-tile_set = SubResource("TileSet_bhupp")
+[node name="level2" type="Node2D" parent="level_manager" unique_id=812471532]
 
 [node name="GameOver" parent="." unique_id=568980725 instance=ExtResource("6_tefeu")]
 visible = false

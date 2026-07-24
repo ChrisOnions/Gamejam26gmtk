@@ -1,6 +1,11 @@
 [gd_scene format=3 uid="uid://8n1gw17cewh2"]
 
-[ext_resource type="Script" uid="uid://725tdydghgoa" path="res://scenes/levels/level.gd" id="1_377w7"]
+[ext_resource type="Script" uid="uid://725tdydghgoa" path="res://scenes/levels/levelOne.gd" id="1_377w7"]
+[ext_resource type="AudioStream" uid="uid://bl58hcfyxjwqh" path="res://assets/music/GMTK Jam 2026 Song 2.mp3" id="3_b2cq8"]
 
-[node name="level" type="Node2D" unique_id=1094904817]
+[node name="levelOne" type="Node2D" unique_id=1094904817]
 script = ExtResource("1_377w7")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=120740482]
+stream = ExtResource("3_b2cq8")
+autoplay = true

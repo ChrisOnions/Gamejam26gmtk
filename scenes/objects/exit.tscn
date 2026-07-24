@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://sx1gjjmdbjyf"]
 
 [ext_resource type="Script" uid="uid://4q14oj8qo07f" path="res://exit.gd" id="1_ilbk5"]
-[ext_resource type="Texture2D" uid="uid://21xrwmjol2if" path="res://assets/New_Piskel12.png" id="2_pm745"]
+[ext_resource type="Texture2D" uid="uid://21xrwmjol2if" path="res://assets/art/New_Piskel12.png" id="2_pm745"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ii5v"]
 size = Vector2(128, 127)
