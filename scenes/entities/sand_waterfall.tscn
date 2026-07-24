@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://3iqmi8ngtgfj" path="res://assets/SandWaterall.png" id="2_20y5t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l0ub4"]
-size = Vector2(296, 288)
+size = Vector2(293, 283)
 
 [node name="Sand_Waterfall" type="Node2D" unique_id=327898283]
 script = ExtResource("1_20y5t")
@@ -13,13 +13,12 @@ script = ExtResource("1_20y5t")
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=1719201327]
 texture_filter = 1
-position = Vector2(11.000008, 0)
+position = Vector2(-12, -91)
 scale = Vector2(3, 3.583)
 texture = ExtResource("2_20y5t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1679948916]
 texture_filter = 1
-position = Vector2(21, 73)
 shape = SubResource("RectangleShape2D_l0ub4")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
