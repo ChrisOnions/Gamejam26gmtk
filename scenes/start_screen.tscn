@@ -44,7 +44,7 @@ text = "Exit"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=959297700]
 layout_mode = 0
-offset_left = 369.0
+offset_left = 335.0
 offset_top = 88.0
 offset_right = 830.0
 offset_bottom = 219.0
