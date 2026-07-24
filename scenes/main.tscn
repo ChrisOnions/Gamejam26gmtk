@@ -5,15 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://cy0vrvj4a15md" path="res://scenes/entities/sand_waterfall.tscn" id="3_sugp2"]
 [ext_resource type="Script" uid="uid://tf5i3vopi7d6" path="res://scenes/levels/level_manager.gd" id="4_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://8n1gw17cewh2" path="res://scenes/levels/level.tscn" id="5_tbgi4"]
-[ext_resource type="PackedScene" uid="uid://sx1gjjmdbjyf" path="res://scenes/objects/exit.tscn" id="7_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://bsd3jifke5tk8" path="res://scenes/game_over.tscn" id="6_tefeu"]
+[ext_resource type="PackedScene" uid="uid://sx1gjjmdbjyf" path="res://scenes/objects/exit.tscn" id="7_o6xl0"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tbgi4"]
-load_path = "res://.godot/imported/New Piskel(11).png-264b1f35bb5f270d413a8e744c37445c.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tefeu"]
 texture = SubResource("CompressedTexture2D_tbgi4")
-0:0/size_in_atlas = Vector2i(4, 4)
 0:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_bhupp"]
@@ -25,15 +23,16 @@ script = ExtResource("1_o5qli")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=215463748]
 
 [node name="Sand" parent="." unique_id=608667906 groups=["levels"] instance=ExtResource("2_0wfyh")]
-position = Vector2(294, 101)
+position = Vector2(455, 119)
 
 [node name="Sand_Waterfall" parent="." unique_id=327898283 instance=ExtResource("3_sugp2")]
-position = Vector2(240, 60)
+position = Vector2(770, 261)
 
 [node name="level_manager" type="Node2D" parent="." unique_id=1489474420]
 script = ExtResource("4_tbgi4")
 
 [node name="level1" parent="level_manager" unique_id=1094904817 instance=ExtResource("5_tbgi4")]
+visible = false
 id = 1
 
 [node name="Sand_Waterfall" parent="level_manager/level1" unique_id=1256013930 instance=ExtResource("3_sugp2")]
@@ -43,6 +42,7 @@ position = Vector2(166, -51)
 position = Vector2(694, 66)
 
 [node name="level2" parent="level_manager" unique_id=2137539602 instance=ExtResource("5_tbgi4")]
+visible = false
 
 [node name="Sand" parent="level_manager/level2" unique_id=36391409 instance=ExtResource("2_0wfyh")]
 position = Vector2(180, 119)
@@ -55,3 +55,4 @@ scale = Vector2(10, 10)
 tile_set = SubResource("TileSet_bhupp")
 
 [node name="GameOver" parent="." unique_id=568980725 instance=ExtResource("6_tefeu")]
+visible = false
