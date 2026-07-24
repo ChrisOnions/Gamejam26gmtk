@@ -22,10 +22,8 @@ current_level = 1
 [node name="levelOne" parent="level_manager" unique_id=1094904817 instance=ExtResource("5_tbgi4")]
 
 [node name="level2" parent="level_manager" unique_id=990703848 instance=ExtResource("4_o6xl0")]
-visible = false
 
 [node name="level_transion" parent="level_manager" unique_id=1612509900 instance=ExtResource("6_o6xl0")]
-visible = false
 
 [node name="GameOver" parent="." unique_id=568980725 instance=ExtResource("6_tefeu")]
 visible = false

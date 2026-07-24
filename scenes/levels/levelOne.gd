@@ -44,4 +44,3 @@ func get_all_children(node:Node) -> Array[Node]:
 		resolt.append(childe)
 		resolt.append_array(get_all_children(childe))
 	return resolt
-		

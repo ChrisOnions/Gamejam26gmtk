@@ -12,3 +12,4 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		print("loding next level")
 		body.position = Vector2(0, 0)  # reset the plaer posion for the next level
 		EventBus.level_transision_screen.emit(GameManager.level_manager.current_level+1)
+		print(GameManager.level_manager.current_level)
