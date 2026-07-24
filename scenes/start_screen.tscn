@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bt0qojpw6rla0" path="res://scenes/start_screen.gd" id="1_tx5wa"]
 [ext_resource type="AudioStream" uid="uid://bujnqmd4pgoem" path="res://assets/music/GMTK_Jammers-Music_v1.mp3" id="2_o7i0r"]
+[ext_resource type="Texture2D" uid="uid://crd1sb0ru8kri" path="res://assets/Title Bacgkground.png" id="3_he1sj"]
 
 [node name="StartScreen" type="Control" unique_id=1162660126]
 layout_mode = 3
@@ -57,6 +58,11 @@ vertical_alignment = 1
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1808222786]
 stream = ExtResource("2_o7i0r")
 autoplay = true
+
+[node name="TitleBacgkground" type="Sprite2D" parent="." unique_id=815485488]
+z_index = -1
+position = Vector2(583, 317)
+texture = ExtResource("3_he1sj")
 
 [connection signal="button_down" from="BoxContainer/VBoxContainer/Start_B" to="." method="_on_start_b_button_down"]
 [connection signal="button_down" from="BoxContainer/VBoxContainer/Options_B" to="." method="_on_options_b_button_down"]
