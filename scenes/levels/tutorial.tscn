@@ -3,15 +3,22 @@
 [ext_resource type="Script" uid="uid://725tdydghgoa" path="res://scenes/levels/levelOne.gd" id="1_u4f7j"]
 [ext_resource type="PackedScene" uid="uid://cy0vrvj4a15md" path="res://scenes/entities/sand_waterfall.tscn" id="2_u4f7j"]
 [ext_resource type="PackedScene" uid="uid://cjxe230cnky80" path="res://scenes/entities/sand.tscn" id="3_1wklo"]
+[ext_resource type="PackedScene" uid="uid://sx1gjjmdbjyf" path="res://scenes/objects/exit.tscn" id="5_1wklo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l0ub4"]
+size = Vector2(3734.5, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1r3rq"]
+size = Vector2(40, 2120)
 
 [node name="tutorial" type="Node2D" unique_id=1006234571]
 script = ExtResource("1_u4f7j")
 
 [node name="Label" type="Label" parent="." unique_id=861729492]
-offset_left = 61.0
-offset_top = -303.0
-offset_right = 630.0
-offset_bottom = -141.0
+offset_left = 261.0
+offset_top = -263.0
+offset_right = 830.0
+offset_bottom = -101.0
 theme_override_colors/font_color = Color(0.07123137, 0.07123139, 0.07123137, 1)
 theme_override_font_sizes/font_size = 32
 text = "You will loose sand 
@@ -19,7 +26,7 @@ when NOT under the sandfall "
 
 [node name="Sand_Waterfall" parent="." unique_id=327898283 instance=ExtResource("2_u4f7j")]
 texture_filter = 1
-position = Vector2(952, 1)
+position = Vector2(1836, -49)
 
 [node name="Label3" type="Label" parent="Sand_Waterfall" unique_id=1277132239]
 offset_left = -126.999985
@@ -45,7 +52,7 @@ text = "Sand waterfall will
 refill sand to full"
 
 [node name="Sand" parent="." unique_id=36391409 groups=["levels"] instance=ExtResource("3_1wklo")]
-position = Vector2(1349, 19)
+position = Vector2(1095, -18)
 rotation = 6.2831855
 
 [node name="Label3" type="Label" parent="Sand" unique_id=125177862]
@@ -58,3 +65,45 @@ theme_override_font_sizes/font_size = 32
 text = "Collect Sand 
 to Extend your
  maximum hour glass time."
+
+[node name="wall" type="Area2D" parent="." unique_id=493009285]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="wall" unique_id=6134821]
+position = Vector2(1034, -448)
+shape = SubResource("RectangleShape2D_l0ub4")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="wall" unique_id=1244845566]
+position = Vector2(995.75, 722)
+shape = SubResource("RectangleShape2D_l0ub4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall" unique_id=2089146243]
+position = Vector2(-810, 292)
+shape = SubResource("RectangleShape2D_1r3rq")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="wall" unique_id=1265944970]
+position = Vector2(2862, 243)
+shape = SubResource("RectangleShape2D_1r3rq")
+
+[node name="Label2" type="Label" parent="." unique_id=1054803706]
+texture_filter = 1
+offset_left = 463.0
+offset_top = 204.0
+offset_right = 671.0
+offset_bottom = 249.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "press E to flip"
+
+[node name="Label3" type="Label" parent="." unique_id=887897970]
+texture_filter = 1
+offset_left = 2463.0
+offset_top = 118.0
+offset_right = 2753.0
+offset_bottom = 211.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Find the sand trap 
+to finish the level"
+
+[node name="exit" parent="." unique_id=2140295111 instance=ExtResource("5_1wklo")]
+position = Vector2(2594, 23)

@@ -61,7 +61,7 @@ autoplay = true
 
 [node name="TitleBacgkground" type="Sprite2D" parent="." unique_id=815485488]
 z_index = -1
-position = Vector2(583, 317)
+position = Vector2(577, 323)
 texture = ExtResource("3_he1sj")
 
 [connection signal="button_down" from="BoxContainer/VBoxContainer/Start_B" to="." method="_on_start_b_button_down"]
