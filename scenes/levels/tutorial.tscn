@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://725tdydghgoa" path="res://scenes/levels/levelOne.gd" id="1_u4f7j"]
 [ext_resource type="PackedScene" uid="uid://cy0vrvj4a15md" path="res://scenes/entities/sand_waterfall.tscn" id="2_u4f7j"]
 [ext_resource type="PackedScene" uid="uid://cjxe230cnky80" path="res://scenes/entities/sand.tscn" id="3_1wklo"]
+[ext_resource type="PackedScene" uid="uid://sx1gjjmdbjyf" path="res://scenes/objects/exit.tscn" id="4_u4f7j"]
 
 [node name="tutorial" type="Node2D" unique_id=1006234571]
 script = ExtResource("1_u4f7j")
@@ -58,3 +59,6 @@ theme_override_font_sizes/font_size = 32
 text = "Collect Sand 
 to Extend your
  maximum hour glass time."
+
+[node name="exit" parent="." unique_id=2140295111 instance=ExtResource("4_u4f7j")]
+position = Vector2(-175, 435)
