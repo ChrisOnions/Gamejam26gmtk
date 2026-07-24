@@ -9,6 +9,8 @@ func _ready() -> void:
 	is_load = false
 	for obj in get_children():
 		obj.process_mode = Node.PROCESS_MODE_DISABLED
+		if obj is CollisionShape2D:
+			obj.set_deferred("disabled", true)
 		if obj is CanvasItem:
 			obj.visible = false
 
@@ -22,15 +24,19 @@ func disable_level() -> void:  # disable all the childer of the level
 	is_load = false
 	for obj in get_all_children(self):
 		obj.process_mode = Node.PROCESS_MODE_DISABLED
+		if obj is CollisionShape2D:
+			obj.set_deferred("disabled", false)
 		if obj is CanvasItem:
 			obj.visible = false
 	
 func lode_level() -> void:  # loads all the childer of the level
 	is_load = true
-	for obj in get_all_children(self): 
-		obj.process_mode = Node.PROCESS_MODE_INHERIT
+	for obj in get_all_children(self):
+		if obj is CollisionShape2D:
+			obj.set_deferred("disabled", false)
 		if obj is CanvasItem:
 			obj.visible = true
+		obj.process_mode = Node.PROCESS_MODE_INHERIT
 	
 func get_all_children(node:Node) -> Array[Node]:
 	var resolt:Array[Node] = []

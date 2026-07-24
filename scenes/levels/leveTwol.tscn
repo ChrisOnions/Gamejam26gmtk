@@ -26,4 +26,3 @@ tile_set = SubResource("TileSet_7ii5v")
 
 [node name="exit" parent="." unique_id=2140295111 instance=ExtResource("4_dtbx2")]
 position = Vector2(377, 278)
-text = "level 2 exit"
