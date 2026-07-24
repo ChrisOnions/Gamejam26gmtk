@@ -4,7 +4,7 @@ const PLAYER_2D = preload("uid://bts4on5khvdh2")
 
 func _ready() -> void:
 	Spawn_Player()
-	pass
+	EventBus.load_level.emit(0)
 
 func Spawn_Player():
 	var player = PLAYER_2D.instantiate()

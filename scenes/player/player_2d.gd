@@ -9,6 +9,7 @@ class_name PLAYER
 @export var refill_rate: float = 2.0
 @export var current_level: int = 1
 
+@onready var canvas_layer: CanvasLayer = $Camera2D/CanvasLayer
 @onready var top_bar: ProgressBar = $TopBar
 @onready var bottom_bar: ProgressBar = $BottomBar
 
@@ -43,7 +44,8 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("Interact"):
 		flip()
-
+	if Input.is_action_just_pressed("load_level0"):
+		EventBus.load_level.emit(0)
 	if Input.is_action_just_pressed("load_level1"):
 		EventBus.load_level.emit(1)
 	if Input.is_action_just_pressed("load_level2"):
@@ -107,6 +109,7 @@ func handle_movement() -> void:
 
 func add_sand(amount: float = 1.0) -> void:
 	max_capacity += amount
+	canvas_layer.update_sand_ui()
 	if not is_flipped:
 		side_a_sand = min(side_a_sand + amount, max_capacity / 2.0)
 	else:

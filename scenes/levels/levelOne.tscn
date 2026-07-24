@@ -5,6 +5,7 @@
 
 [node name="levelOne" type="Node2D" unique_id=1094904817]
 script = ExtResource("1_s74c4")
+id = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=120740482]
 stream = ExtResource("2_bl6y6")

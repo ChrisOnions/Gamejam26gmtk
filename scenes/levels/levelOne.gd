@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var id:int = 2  # is const but do not know how to export and const
+@export var id:int   # is const but do not know how to export and const
 var is_load:bool
 
 func _ready() -> void:
@@ -8,10 +8,8 @@ func _ready() -> void:
 	is_load = false
 	for obj in get_children():
 		obj.process_mode = Node.PROCESS_MODE_DISABLED
-		#obj.visible = false
-
-func _process(delta: float) -> void:
-	pass
+		if obj is CanvasItem:
+			obj.visible = false
 
 func _on_load_level(level_id:int) -> void:
 	if level_id == id:
@@ -23,10 +21,12 @@ func disable_level() -> void:  # disable all the childer of the level
 	is_load = false
 	for obj in get_children():
 		obj.process_mode = Node.PROCESS_MODE_DISABLED
-		#obj.visible = false
+		if obj is CanvasItem:
+			obj.visible = false
 	
 func lode_level() -> void:  # loads all the childer of the level
 	is_load = true
 	for obj in get_children():
 		obj.process_mode = Node.PROCESS_MODE_INHERIT
-		#obj.visible = true
+		if obj is CanvasItem:
+			obj.visible = true

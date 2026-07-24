@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://bts4on5khvdh2"]
 
 [ext_resource type="Script" uid="uid://b08fm8b7lmyic" path="res://scenes/player/player_2d.gd" id="1_as2q7"]
+[ext_resource type="Texture2D" uid="uid://xygkdk3brfpy" path="res://assets/SandBuble.png" id="2_bl5na"]
 [ext_resource type="Texture2D" uid="uid://gg5rua1yrnf4" path="res://assets/icon.svg" id="2_ie5yh"]
+[ext_resource type="Script" uid="uid://b45ltsn5nmodv" path="res://scenes/player/PlayerCameraCanvas.gd" id="2_qfiif"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o5qli"]
 size = Vector2(125, 126)
@@ -10,6 +12,33 @@ size = Vector2(125, 126)
 script = ExtResource("1_as2q7")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1227124696]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D" unique_id=1169965768]
+script = ExtResource("2_qfiif")
+
+[node name="Control" type="Control" parent="Camera2D/CanvasLayer" unique_id=1737625530]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/CanvasLayer/Control" unique_id=812996443]
+position = Vector2(1099, 46.000008)
+scale = Vector2(0.95312476, 0.90625006)
+texture = ExtResource("2_bl5na")
+
+[node name="Label" type="Label" parent="Camera2D/CanvasLayer/Control" unique_id=1079941337]
+layout_mode = 0
+offset_left = 1075.0
+offset_top = 17.0
+offset_right = 1130.0
+offset_bottom = 72.0
+theme_override_font_sizes/font_size = 32
+text = "99"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=452951448]
 position = Vector2(-0.5, -1)
