@@ -41,13 +41,13 @@ text = "Exit"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1472039047]
 layout_mode = 0
-offset_left = 377.0
-offset_top = 107.0
-offset_right = 801.0
-offset_bottom = 181.0
+offset_left = 326.0
+offset_top = 88.0
+offset_right = 856.0
+offset_bottom = 228.0
 theme_override_font_sizes/normal_font_size = 48
 bbcode_enabled = true
-text = "[wave]Your time ran out[/wave]"
+text = "[wave amp=20.0 freq=10.0][color=wheat]Your time ran out[/color][/wave]"
 horizontal_alignment = 1
 vertical_alignment = 1
 

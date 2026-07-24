@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://mj8usmvfv3we"]
 
 [ext_resource type="Script" uid="uid://bt0qojpw6rla0" path="res://scenes/start_screen.gd" id="1_tx5wa"]
+[ext_resource type="AudioStream" uid="uid://bujnqmd4pgoem" path="res://assets/music/GMTK_Jammers-Music_v1.mp3" id="2_o7i0r"]
 
 [node name="StartScreen" type="Control" unique_id=1162660126]
 layout_mode = 3
@@ -43,15 +44,19 @@ text = "Exit"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=959297700]
 layout_mode = 0
-offset_left = 473.0
-offset_top = 74.0
-offset_right = 682.0
-offset_bottom = 179.0
+offset_left = 369.0
+offset_top = 88.0
+offset_right = 804.0
+offset_bottom = 219.0
 theme_override_font_sizes/normal_font_size = 48
 bbcode_enabled = true
-text = "[wave]Title?[/wave]"
+text = "[wave amp=20.0 freq=10.0][color=wheat]Flipped! Flow direction reversed.[/color][/wave]"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1808222786]
+stream = ExtResource("2_o7i0r")
+autoplay = true
 
 [connection signal="button_down" from="BoxContainer/VBoxContainer/Start_B" to="." method="_on_start_b_button_down"]
 [connection signal="button_down" from="BoxContainer/VBoxContainer/Options_B" to="." method="_on_options_b_button_down"]

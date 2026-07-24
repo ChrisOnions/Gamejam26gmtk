@@ -119,6 +119,7 @@ func stop_refill() -> void:
 	is_refilling = false
 
 func player_death() -> void:
+	EventBus.player_died.emit()
 	queue_free()
 
 func ui_update() -> void:

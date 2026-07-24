@@ -1,18 +1,19 @@
 [gd_scene format=3 uid="uid://cjxe230cnky80"]
 
 [ext_resource type="Script" uid="uid://cw5vlfadnrgf4" path="res://scenes/entities/sand.gd" id="1_v7ygb"]
-[ext_resource type="Texture2D" uid="uid://gg5rua1yrnf4" path="res://assets/icon.svg" id="1_y6jb5"]
+[ext_resource type="Texture2D" uid="uid://xygkdk3brfpy" path="res://assets/SandBuble.png" id="2_v7ygb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l0ub4"]
+radius = 32.01562
 
 [node name="Sand" type="Node2D" unique_id=36391409 groups=["Collectables"]]
 script = ExtResource("1_v7ygb")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=618827044]
+texture_filter = 1
 position = Vector2(0.08390665, 0.08390665)
 rotation = 3.1415925
-scale = Vector2(0.22847785, 0.22847785)
-texture = ExtResource("1_y6jb5")
+texture = ExtResource("2_v7ygb")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=68087917]
 
