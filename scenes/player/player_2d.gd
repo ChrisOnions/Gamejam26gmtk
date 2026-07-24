@@ -93,6 +93,7 @@ func flip() -> void:
 		sprite_2d.flip_v = is_flipped
 
 	print("Flipped! Inverted (Leaking Side A): ", is_flipped)
+	EventBus.player_flip.emit()
 
 func handle_movement() -> void:
 	if not is_sand_moving:
