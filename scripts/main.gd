@@ -9,3 +9,4 @@ func _ready() -> void:
 func Spawn_Player():
 	var player = PLAYER_2D.instantiate()
 	add_child(player)
+	player.global_position = Vector2(-500,200)

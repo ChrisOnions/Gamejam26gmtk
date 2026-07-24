@@ -12,6 +12,7 @@ size = Vector2(125, 126)
 script = ExtResource("1_as2q7")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1227124696]
+zoom = Vector2(0.75, 0.75)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D" unique_id=1169965768]
 script = ExtResource("2_qfiif")
