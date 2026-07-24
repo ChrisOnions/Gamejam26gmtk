@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name PLAYER
 
 @export var sprite_2d: Sprite2D
-@export var max_capacity: float = 10.0
+@export var max_capacity: float = 100.0
 @export var flow_rate: float = 1.0
 @export var leak_rate: float = 0.40
 @export var grace_period: float = 3.0
