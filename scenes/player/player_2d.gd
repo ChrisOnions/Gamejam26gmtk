@@ -4,13 +4,13 @@ class_name PLAYER
 @export var sprite_2d: Sprite2D
 @export var max_capacity: float = 10.0
 @export var flow_rate: float = 1.0
-@export var leak_rate: float = 1.0
+@export var leak_rate: float = 0.40
 @export var grace_period: float = 3.0
 @export var refill_rate: float = 2.0
 @export var current_level: int = 1
 
 @onready var canvas_layer: CanvasLayer = $Camera2D/CanvasLayer
-@onready var top_bar: ProgressBar = $TopBar
+@onready var top_bar: TextureProgressBar = $TopBar
 @onready var bottom_bar: ProgressBar = $BottomBar
 
 var side_a_sand: float
