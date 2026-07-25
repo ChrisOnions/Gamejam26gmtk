@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bf8ino5nol1rx"
-path="res://.godot/imported/Hourglass_Player.png-404d7e9ef3fe89723d245539bb74101a.ctex"
+uid="uid://c5copfd4up1i2"
+path="res://.godot/imported/Hourglass_Player_Idle_Hole_Up.png-1a2ce732165a2d6c5e0ff3092edfdb5c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Hourglass_Player.png"
-dest_files=["res://.godot/imported/Hourglass_Player.png-404d7e9ef3fe89723d245539bb74101a.ctex"]
+source_file="res://assets/Hourglass_Player_Idle_Hole_Up.png"
+dest_files=["res://.godot/imported/Hourglass_Player_Idle_Hole_Up.png-1a2ce732165a2d6c5e0ff3092edfdb5c.ctex"]
 
 [params]
 

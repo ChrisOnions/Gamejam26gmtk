@@ -88,6 +88,7 @@ func handle_sand_mechanics(delta: float) -> void:
 
 func flip() -> void:
 	is_flipped = not is_flipped
+	$AnimatedSprite2D.play("Flip")
 	
 	if sprite_2d:
 		sprite_2d.flip_v = is_flipped
