@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bc270h8becc42" path="res://scenes/levels/level_3.tscn" id="7_85g3d"]
 [ext_resource type="PackedScene" uid="uid://f3lv1gi0q73p" path="res://scenes/levels/level_4.tscn" id="8_choun"]
 [ext_resource type="PackedScene" uid="uid://b3iwxdwn2pf5e" path="res://scenes/levels/level_5.tscn" id="9_choun"]
+[ext_resource type="Script" uid="uid://725tdydghgoa" path="res://scenes/levels/levelOne.gd" id="10_ya4ey"]
 
 [node name="Main" type="Node" unique_id=1486335504]
 script = ExtResource("1_o5qli")
@@ -34,6 +35,8 @@ position = Vector2(-70, -31)
 [node name="Level_4" parent="level_manager" unique_id=383829128 instance=ExtResource("8_choun")]
 
 [node name="level 5" parent="level_manager" unique_id=1491822665 instance=ExtResource("9_choun")]
+script = ExtResource("10_ya4ey")
+id = 5
 
 [node name="GameOver" parent="." unique_id=568980725 instance=ExtResource("6_tefeu")]
 visible = false
