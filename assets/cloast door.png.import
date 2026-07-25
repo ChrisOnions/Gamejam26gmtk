@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bf8ino5nol1rx"
-path="res://.godot/imported/Hourglass_Player.png-404d7e9ef3fe89723d245539bb74101a.ctex"
+uid="uid://ceb1brmgpa3en"
+path="res://.godot/imported/cloast door.png-066343312449785ab4cf90bc29cd6302.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Hourglass_Player.png"
-dest_files=["res://.godot/imported/Hourglass_Player.png-404d7e9ef3fe89723d245539bb74101a.ctex"]
+source_file="res://assets/cloast door.png"
+dest_files=["res://.godot/imported/cloast door.png-066343312449785ab4cf90bc29cd6302.ctex"]
 
 [params]
 

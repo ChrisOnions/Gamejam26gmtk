@@ -74,7 +74,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_apnjw")
 }],
-"loop": 0,
+"loop": 1,
 "name": &"Flip",
 "speed": 5.0
 }, {
@@ -140,10 +140,10 @@ position = Vector2(-0.5, 45.5)
 scale = Vector2(0.25, 0.25)
 shape = SubResource("RectangleShape2D_o5qli")
 
-[node name="SandBars" type="Node2D" parent="." unique_id=1688650122]
+[node name="Node2D" type="Node2D" parent="." unique_id=1688650122]
 position = Vector2(-1, -11)
 
-[node name="TopBar" type="TextureProgressBar" parent="SandBars" unique_id=971043716]
+[node name="TopBar" type="TextureProgressBar" parent="Node2D" unique_id=971043716]
 offset_left = 35.0
 offset_top = -1.0
 offset_right = 211.0
@@ -154,7 +154,7 @@ value = 100.0
 fill_mode = 2
 texture_progress = ExtResource("5_hk302")
 
-[node name="BottomBar" type="TextureProgressBar" parent="SandBars" unique_id=775018160]
+[node name="BottomBar" type="TextureProgressBar" parent="Node2D" unique_id=775018160]
 offset_left = -35.0
 offset_top = -0.99999976
 offset_right = 141.0
@@ -169,7 +169,7 @@ texture_progress = ExtResource("5_hk302")
 position = Vector2(-0.99998474, -9.536743e-07)
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_l0ub4")
-animation = &"Flip"
+animation = &"Idle"
 autoplay = "Idle"
 
 [node name="TopBar3" type="ProgressBar" parent="." unique_id=1303120385]

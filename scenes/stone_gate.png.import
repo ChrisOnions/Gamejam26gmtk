@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bf8ino5nol1rx"
-path="res://.godot/imported/Hourglass_Player.png-404d7e9ef3fe89723d245539bb74101a.ctex"
+uid="uid://d1b80q70b405r"
+path="res://.godot/imported/stone_gate.png-70f68d0b2b762ce64b2cc747ec1cb9a9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Hourglass_Player.png"
-dest_files=["res://.godot/imported/Hourglass_Player.png-404d7e9ef3fe89723d245539bb74101a.ctex"]
+source_file="res://scenes/stone_gate.png"
+dest_files=["res://.godot/imported/stone_gate.png-70f68d0b2b762ce64b2cc747ec1cb9a9.ctex"]
 
 [params]
 
