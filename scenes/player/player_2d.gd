@@ -10,12 +10,14 @@ class_name PLAYER
 @export var current_level: int = 1
 
 @onready var canvas_layer: CanvasLayer = $Camera2D/CanvasLayer
-@onready var top_bar: TextureProgressBar = $TopBar
-@onready var bottom_bar: ProgressBar = $BottomBar
+@onready var sand_bars: Node2D = $SandBars # Ensure this matches your Node2D's exact name in the scene tree
+@onready var top_bar: TextureProgressBar = $SandBars/TopBar
+@onready var bottom_bar: TextureProgressBar = $SandBars/BottomBar
 
 var side_a_sand: float
 var side_b_sand: float
 
+var is_flipping: bool = false
 var is_flipped: bool = false
 var is_refilling: bool = false
 var gameover: bool = false
@@ -29,6 +31,7 @@ func _ready() -> void:
 	side_a_sand = max_capacity / 2.0
 	side_b_sand = 0.0
 	GameManager.player = self
+	$AnimatedSprite2D.sprite_frames.set_animation_loop("Flip", false)
 
 func _process(delta: float) -> void:
 	if side_a_sand <= 0.0 and side_b_sand <= 0.0 and not gameover:
@@ -87,11 +90,21 @@ func handle_sand_mechanics(delta: float) -> void:
 		grace_time_left = 0.0
 
 func flip() -> void:
+	# Ignore flip inputs if already mid-animation
+	if is_flipping:
+		return
+		
+	is_flipping = true
 	is_flipped = not is_flipped
-	$AnimatedSprite2D.play("Flip")
 	
-	if sprite_2d:
-		sprite_2d.flip_v = is_flipped
+	# Start turning the Node2D parent
+	animate_bar_rotation(1.0)
+	
+	$AnimatedSprite2D.play("Flip")
+	await $AnimatedSprite2D.animation_finished
+	
+	$AnimatedSprite2D.play("idle hole up")
+	is_flipping = false # Allow player to flip again
 
 	print("Flipped! Inverted (Leaking Side A): ", is_flipped)
 	EventBus.player_flip.emit()
@@ -131,9 +144,26 @@ func ui_update() -> void:
 	top_bar.max_value = max_capacity / 2.0
 	bottom_bar.max_value = max_capacity / 2.0
 	
+	# Since rotation snaps back to 0.0, top_bar remains physical TOP
+	# and bottom_bar remains physical BOTTOM on screen.
 	if not is_flipped:
 		top_bar.value = side_a_sand
 		bottom_bar.value = side_b_sand
 	else:
 		top_bar.value = side_b_sand
 		bottom_bar.value = side_a_sand
+
+## Rotates the Node2D parent 180 degrees over a duration, then snaps back to 0.
+func animate_bar_rotation(duration: float = 1.1) -> void:
+	# Reset starting point to 0.0 so degrees don't build up endlessly
+	sand_bars.rotation_degrees = 0.0
+
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_SINE)
+	tween.set_ease(Tween.EASE_IN_OUT)
+
+	# 1. Smoothly spin 180 degrees
+	tween.tween_property(sand_bars, "rotation_degrees", 180.0, duration)
+	
+	# 2. Instantly reset rotation back to 0.0 at the end of the spin
+	tween.tween_callback(func(): sand_bars.rotation_degrees = 0.0)
