@@ -37,6 +37,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if side_a_sand <= 0.0 and side_b_sand <= 0.0 and not gameover:
 		gameover = true
+		MusicManager.stop_music()
 		print("Spawning reset button")
 		var spawnedbutton = resetbutton.instantiate()
 		add_child(spawnedbutton)
@@ -44,6 +45,7 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	ui_update()
 	handle_sand_mechanics(delta)
+	MusicManager.update_intensity(side_a_sand + side_b_sand, max_capacity)
 	handle_movement()
 	
 	if Input.is_action_just_pressed("Interact"):

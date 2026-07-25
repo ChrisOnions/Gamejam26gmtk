@@ -1,7 +1,6 @@
 [gd_scene format=4 uid="uid://vu4f8altnubo"]
 
 [ext_resource type="Script" uid="uid://725tdydghgoa" path="res://scenes/levels/levelOne.gd" id="1_notpl"]
-[ext_resource type="AudioStream" uid="uid://bl58hcfyxjwqh" path="res://assets/music/GMTK Jam 2026 Song 2.mp3" id="1_q8hey"]
 [ext_resource type="Texture2D" uid="uid://21xrwmjol2if" path="res://assets/art/New_Piskel12.png" id="3_aktyx"]
 [ext_resource type="Texture2D" uid="uid://foir07frniow" path="res://assets/sand_texture.png" id="4_05iw5"]
 [ext_resource type="PackedScene" uid="uid://sx1gjjmdbjyf" path="res://scenes/objects/exit.tscn" id="4_dtbx2"]
