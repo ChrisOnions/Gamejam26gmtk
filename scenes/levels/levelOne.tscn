@@ -1,7 +1,6 @@
 [gd_scene format=4 uid="uid://8n1gw17cewh2"]
 
 [ext_resource type="Script" uid="uid://725tdydghgoa" path="res://scenes/levels/levelOne.gd" id="1_s74c4"]
-[ext_resource type="AudioStream" uid="uid://bl58hcfyxjwqh" path="res://assets/music/GMTK Jam 2026 Song 2.mp3" id="2_bl6y6"]
 [ext_resource type="PackedScene" uid="uid://sx1gjjmdbjyf" path="res://scenes/objects/exit.tscn" id="3_bl6y6"]
 [ext_resource type="PackedScene" uid="uid://cy0vrvj4a15md" path="res://scenes/entities/sand_waterfall.tscn" id="4_tlt14"]
 [ext_resource type="TileSet" uid="uid://bxios8kv77fa5" path="res://Overlayset.tres" id="5_8u72y"]
@@ -31,10 +30,6 @@ size = Vector2(1331, 522)
 [node name="levelOne" type="Node2D" unique_id=1094904817]
 script = ExtResource("1_s74c4")
 id = 1
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=120740482]
-stream = ExtResource("2_bl6y6")
-autoplay = true
 
 [node name="exit" parent="." unique_id=2140295111 instance=ExtResource("3_bl6y6")]
 position = Vector2(165, 2776)

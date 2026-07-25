@@ -204,6 +204,12 @@ animations = [{
 
 [node name="Player2d" type="CharacterBody2D" unique_id=1764116379]
 script = ExtResource("1_as2q7")
+max_capacity = null
+flow_rate = null
+leak_rate = null
+grace_period = null
+refill_rate = null
+current_level = null
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1227124696]
 zoom = Vector2(0.75, 0.75)
