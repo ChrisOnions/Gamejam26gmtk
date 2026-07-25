@@ -1,49 +1,10 @@
 [gd_scene format=3 uid="uid://cxlttal2wja81"]
 
-[ext_resource type="Script" uid="uid://dhi3cqmk6814g" path="res://door.gd" id="1_eg4y5"]
-[ext_resource type="Texture2D" uid="uid://5a60cwckao4t" path="res://assets/open door.png" id="2_omigq"]
-[ext_resource type="Texture2D" uid="uid://ceb1brmgpa3en" path="res://assets/cloast door.png" id="3_6ody7"]
-[ext_resource type="Script" uid="uid://cx0xrt1eg65mi" path="res://scenes/levels/swits.gd" id="4_omigq"]
-[ext_resource type="Texture2D" uid="uid://bvxwkqw7p2ryb" path="res://assets/flpi icon.png" id="4_trhoh"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ii5v"]
-size = Vector2(32, 32)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ldvr8"]
-size = Vector2(32, 32)
+[ext_resource type="PackedScene" uid="uid://c73bei1xg6jjx" path="res://scenes/objects/door_to_flip_switch.tscn" id="1_n2o8m"]
+[ext_resource type="PackedScene" uid="uid://bvmi1h211nx3m" path="res://scenes/levels/flip_switch.tscn" id="2_yh8x5"]
 
 [node name="flip switch and door" type="Node2D" unique_id=2038947610]
 
-[node name="door" type="Node2D" parent="." unique_id=1936625773]
-script = ExtResource("1_eg4y5")
+[node name="door" parent="." unique_id=1344435578 instance=ExtResource("1_n2o8m")]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="door" unique_id=2071885647]
-scale = Vector2(10, 10)
-
-[node name="open" type="Sprite2D" parent="door/StaticBody2D" unique_id=1043752320]
-scale = Vector2(0.99999994, 0.99999994)
-texture = ExtResource("3_6ody7")
-
-[node name="close" type="Sprite2D" parent="door/StaticBody2D" unique_id=2031075486]
-texture = ExtResource("2_omigq")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="door/StaticBody2D" unique_id=1170735062]
-shape = SubResource("RectangleShape2D_7ii5v")
-
-[node name="swits" type="Node2D" parent="." unique_id=1760352136]
-script = ExtResource("4_omigq")
-
-[node name="Area2D" type="Area2D" parent="swits" unique_id=1482885528]
-position = Vector2(400, 0)
-scale = Vector2(10, 10)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="swits/Area2D" unique_id=2111451771]
-shape = SubResource("RectangleShape2D_ldvr8")
-
-[node name="Sprite2D" type="Sprite2D" parent="swits/Area2D" unique_id=1287651349]
-position = Vector2(3.8146973e-06, 0)
-scale = Vector2(1.0000002, 1)
-texture = ExtResource("4_trhoh")
-
-[connection signal="body_entered" from="swits/Area2D" to="swits" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="swits/Area2D" to="swits" method="_on_area_2d_body_exited"]
+[node name="swits" parent="." unique_id=735638387 instance=ExtResource("2_yh8x5")]

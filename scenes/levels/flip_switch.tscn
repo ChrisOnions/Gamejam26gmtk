@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bvmi1h211nx3m"]
+
+[ext_resource type="Script" uid="uid://cx0xrt1eg65mi" path="res://scenes/levels/swits.gd" id="1_cvd3w"]
+[ext_resource type="Texture2D" uid="uid://bvxwkqw7p2ryb" path="res://assets/flpi icon.png" id="2_eaaj5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ldvr8"]
+size = Vector2(32, 32)
+
+[node name="swits" type="Node2D" unique_id=735638387]
+script = ExtResource("1_cvd3w")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1217340433]
+position = Vector2(400, 0)
+scale = Vector2(10, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1221259470]
+shape = SubResource("RectangleShape2D_ldvr8")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=649105262]
+position = Vector2(3.8146973e-06, 0)
+scale = Vector2(1.0000002, 1)
+texture = ExtResource("2_eaaj5")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
