@@ -23,6 +23,7 @@ var is_refilling: bool = false
 var gameover: bool = false
 var grace_time_left: float = 0.0
 var is_sand_moving: bool = false
+var has_key: bool = false
 
 const SPEED = 300.0
 var resetbutton = preload("res://scenes/game_over.tscn")
