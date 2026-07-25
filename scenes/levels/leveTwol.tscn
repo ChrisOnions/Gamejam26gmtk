@@ -237,10 +237,22 @@ position = Vector2(24, -71)
 [node name="Node" type="Node" parent="." unique_id=187911663]
 
 [node name="Sand" parent="Node" unique_id=36391409 instance=ExtResource("7_867fm")]
-position = Vector2(-3182, -1875)
+position = Vector2(-2986, -2048)
 
 [node name="Sand12" parent="Node" unique_id=944794088 instance=ExtResource("7_867fm")]
-position = Vector2(-3058, -2310)
+position = Vector2(-3055, -2243)
+
+[node name="Sand13" parent="Node" unique_id=419875114 instance=ExtResource("7_867fm")]
+position = Vector2(-3018, -2198)
+
+[node name="Sand14" parent="Node" unique_id=255409841 instance=ExtResource("7_867fm")]
+position = Vector2(-3100, -2046)
+
+[node name="Sand15" parent="Node" unique_id=1686364181 instance=ExtResource("7_867fm")]
+position = Vector2(-2982, -2109)
+
+[node name="Sand16" parent="Node" unique_id=1974542554 instance=ExtResource("7_867fm")]
+position = Vector2(-1934, -1864)
 
 [node name="Sand29" parent="Node" unique_id=418522070 instance=ExtResource("7_867fm")]
 position = Vector2(-1083, -2074)
@@ -255,40 +267,40 @@ position = Vector2(2152, -2098)
 position = Vector2(3171, -2312)
 
 [node name="Sand24" parent="Node" unique_id=1269809810 instance=ExtResource("7_867fm")]
-position = Vector2(-3094, -2282)
+position = Vector2(-3067, -2184)
 
 [node name="Sand25" parent="Node" unique_id=529742511 instance=ExtResource("7_867fm")]
-position = Vector2(-2846, -1860)
+position = Vector2(-2987, -2163)
 
 [node name="Sand26" parent="Node" unique_id=1716659400 instance=ExtResource("7_867fm")]
-position = Vector2(-2905, -1863)
+position = Vector2(-3103, -2232)
 
 [node name="Sand27" parent="Node" unique_id=33961711 instance=ExtResource("7_867fm")]
-position = Vector2(-3046, -2254)
+position = Vector2(-3118, -2176)
 
 [node name="Sand28" parent="Node" unique_id=1994385759 instance=ExtResource("7_867fm")]
-position = Vector2(-2753, -2360)
+position = Vector2(-3094, -2128)
 
 [node name="Sand19" parent="Node" unique_id=18164438 instance=ExtResource("7_867fm")]
-position = Vector2(-2874, -1905)
+position = Vector2(-3035, -2145)
 
 [node name="Sand20" parent="Node" unique_id=702731691 instance=ExtResource("7_867fm")]
-position = Vector2(-3166, -1929)
+position = Vector2(-3154, -2122)
 
 [node name="Sand21" parent="Node" unique_id=660983306 instance=ExtResource("7_867fm")]
-position = Vector2(-3239, -1862)
+position = Vector2(-3131, -2076)
 
 [node name="Sand22" parent="Node" unique_id=1649929391 instance=ExtResource("7_867fm")]
-position = Vector2(-3227, -1920)
+position = Vector2(-3041, -2038)
 
 [node name="Sand23" parent="Node" unique_id=360214675 instance=ExtResource("7_867fm")]
-position = Vector2(-2736, -2418)
+position = Vector2(-3031, -2092)
 
 [node name="Sand17" parent="Node" unique_id=1480129249 instance=ExtResource("7_867fm")]
 position = Vector2(-8732, -2187)
 
 [node name="Sand18" parent="Node" unique_id=1716830224 instance=ExtResource("7_867fm")]
-position = Vector2(-2790, -2412)
+position = Vector2(-3080, -2088)
 
 [node name="Sand2" parent="Node" unique_id=438986011 instance=ExtResource("7_867fm")]
 position = Vector2(-1607, 728)
