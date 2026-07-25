@@ -54,7 +54,10 @@ func _physics_process(delta: float) -> void:
 		EventBus.load_level.emit(1)
 	if Input.is_action_just_pressed("load_level2"):
 		EventBus.load_level.emit(2)
-
+	if Input.is_action_just_pressed("load_level3"):
+		EventBus.load_level.emit(3)
+	if Input.is_action_just_pressed("load_level4"):
+		EventBus.load_level.emit(4)
 func handle_sand_mechanics(delta: float) -> void:
 	var prev_a = side_a_sand
 	var prev_b = side_b_sand

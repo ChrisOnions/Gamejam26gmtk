@@ -11,7 +11,7 @@
 size = Vector2(1445, 308.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eoopn"]
-size = Vector2(2847, 636)
+size = Vector2(2868, 636)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ldvr8"]
 size = Vector2(756.5, 3461)
@@ -23,10 +23,10 @@ size = Vector2(646, 3485.75)
 size = Vector2(715.5, 435)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oklhw"]
-size = Vector2(1850, 555)
+size = Vector2(1514, 555)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2aaec"]
-size = Vector2(1331, 522)
+size = Vector2(1253.5, 522)
 
 [node name="levelOne" type="Node2D" unique_id=1094904817]
 script = ExtResource("1_s74c4")
@@ -55,7 +55,7 @@ position = Vector2(30, -301)
 shape = SubResource("RectangleShape2D_8ohph")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="wall" unique_id=1208358730]
-position = Vector2(57.5, 3335)
+position = Vector2(86, 3335)
 shape = SubResource("RectangleShape2D_eoopn")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="wall" unique_id=14412993]
@@ -71,11 +71,11 @@ position = Vector2(107, 2334)
 shape = SubResource("RectangleShape2D_418si")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="wall" unique_id=1520030110]
-position = Vector2(-731, 818)
+position = Vector2(-563, 818)
 shape = SubResource("RectangleShape2D_oklhw")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="wall" unique_id=162239752]
-position = Vector2(911, 1565)
+position = Vector2(872.25, 1565)
 shape = SubResource("RectangleShape2D_2aaec")
 
 [node name="Sand" parent="." unique_id=36391409 instance=ExtResource("6_wmc2i")]
