@@ -13,10 +13,13 @@
 [ext_resource type="Script" uid="uid://725tdydghgoa" path="res://scenes/levels/levelOne.gd" id="10_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://b3iwxdwn2pf5e" path="res://scenes/levels/level_5.tscn" id="11_eb6dy"]
 
-[node name="Main" type="Node" unique_id=1486335504]
+[node name="Main" type="Node2D" unique_id=270884480]
 script = ExtResource("1_o5qli")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=215463748]
+
+[node name="GameOver" parent="CanvasLayer" unique_id=568980725 instance=ExtResource("6_tefeu")]
+visible = false
 
 [node name="level_manager" type="Node2D" parent="." unique_id=1489474420]
 script = ExtResource("4_tbgi4")
@@ -41,9 +44,6 @@ id = 6
 [node name="level 5" parent="level_manager" unique_id=1491822665 instance=ExtResource("11_eb6dy")]
 script = ExtResource("10_eb6dy")
 id = 5
-
-[node name="GameOver" parent="." unique_id=568980725 instance=ExtResource("6_tefeu")]
-visible = false
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1261036035]
 color = Color(0.3741397, 0.37413904, 0.37413958, 1)

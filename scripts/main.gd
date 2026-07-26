@@ -1,7 +1,7 @@
 extends Node
 
 const PLAYER_2D = preload("uid://bts4on5khvdh2")
-@onready var gpu_particles_2d: GPUParticles2D = $level_manager/tutorial/GPUParticles2D
+#@onready var gpu_particles_2d: GPUParticles2D = $level_manager/tutorial/GPUParticles2D
 
 func _ready() -> void:
 	Spawn_Player()
