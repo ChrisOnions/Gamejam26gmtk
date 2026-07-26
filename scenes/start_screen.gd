@@ -38,7 +38,6 @@ func _on_back_b_button_down() -> void:
 	box_container.visible = true
 	options_panel.visible = false
 
-
 func _on_music_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(music_bus, linear_to_db(value))
 
