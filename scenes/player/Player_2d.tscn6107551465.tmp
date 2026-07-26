@@ -3,11 +3,10 @@
 [ext_resource type="Script" uid="uid://b08fm8b7lmyic" path="res://scenes/player/player_2d.gd" id="1_as2q7"]
 [ext_resource type="Texture2D" uid="uid://xygkdk3brfpy" path="res://assets/SandBuble.png" id="2_bl5na"]
 [ext_resource type="Script" uid="uid://b45ltsn5nmodv" path="res://scenes/player/PlayerCameraCanvas.gd" id="2_qfiif"]
-[ext_resource type="Texture2D" uid="uid://ct53hwvef1tii" path="res://assets/hourglass_sand_top_back.png" id="4_4e4bt"]
+[ext_resource type="Texture2D" uid="uid://kb3louppv7lb" path="res://assets/Hourglass_sand-back.png" id="4_apnjw"]
 [ext_resource type="Texture2D" uid="uid://c8gobv1ldd0kr" path="res://assets/art/PlayerStates/mini_flip.png" id="5_th0d2"]
 [ext_resource type="Texture2D" uid="uid://dtsd366g3s472" path="res://assets/hourglass_sand_top.png" id="5_v6und"]
 [ext_resource type="Texture2D" uid="uid://bg7mgr1h1gkaw" path="res://assets/hourglass_sand_bottum.png" id="6_4e4bt"]
-[ext_resource type="Texture2D" uid="uid://cwnll0n1jc167" path="res://assets/hourglass_sand_bottum_back.png" id="6_4rcpa"]
 [ext_resource type="Texture2D" uid="uid://b6y2648wcphj5" path="res://assets/art/PlayerStates/Hourglass_Player_Walking_Hole_Up2.png" id="7_u6d8m"]
 [ext_resource type="Texture2D" uid="uid://b1bl6q3adsrha" path="res://assets/art/PlayerStates/Hourglass_Player_walking_back_hole_up.png" id="7_vgk0c"]
 [ext_resource type="Texture2D" uid="uid://b7gdn62ba1kx1" path="res://assets/art/PlayerStates/Hourglass_Player_Walking_Hole_Up1.png" id="8_th0d2"]
@@ -295,8 +294,11 @@ animations = [{
 [node name="Player2d" type="CharacterBody2D" unique_id=1764116379]
 script = ExtResource("1_as2q7")
 max_capacity = 10.0
-flow_rate = 0.395
-leak_rate = 0.105
+flow_rate = 0.295
+leak_rate = 0.155
+grace_period = null
+refill_rate = null
+current_level = null
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1227124696]
 zoom = Vector2(0.75, 0.75)
@@ -340,29 +342,42 @@ position = Vector2(-1, -11)
 offset_left = -24.0
 offset_top = -38.0
 offset_right = 152.0
-offset_bottom = 114.0
+offset_bottom = 266.0
 scale = Vector2(0.27, 0.27)
 max_value = 30.0
 value = 30.0
 fill_mode = 3
-texture_under = ExtResource("4_4e4bt")
+texture_under = ExtResource("4_apnjw")
 texture_progress = ExtResource("5_v6und")
 
 [node name="SandBarBottum" type="TextureProgressBar" parent="SandBars" unique_id=343811190]
 offset_left = -24.0
 offset_top = 2.0
 offset_right = 152.0
-offset_bottom = 154.0
+offset_bottom = 306.0
 scale = Vector2(0.27, 0.27)
-step = 0.05
-texture_under = ExtResource("6_4rcpa")
-texture_progress = ExtResource("6_4e4bt")
+texture_under = ExtResource("4_apnjw")
+texture_over = ExtResource("6_4e4bt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=192637740]
 position = Vector2(-0.99998474, -9.536743e-07)
 sprite_frames = SubResource("SpriteFrames_l0ub4")
-animation = &"Flip"
+animation = &"walk_down_hole_up"
 autoplay = "idle_hole_up"
+
+[node name="TopBar3" type="ProgressBar" parent="." unique_id=1303120385]
+visible = false
+offset_left = 67.0
+offset_top = -62.0
+offset_right = 106.0
+offset_bottom = -35.0
+
+[node name="p" type="ProgressBar" parent="." unique_id=1167082867]
+visible = false
+offset_left = 65.0
+offset_top = 1.0
+offset_right = 104.0
+offset_bottom = 28.0
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1240032849]
 position = Vector2(9.094947e-13, 1)
