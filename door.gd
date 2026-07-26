@@ -1,6 +1,8 @@
 extends Node2D
 
+@onready var sfx_door: AudioStreamPlayer = $sfx_door
 @export var door_id:int = 0
+
 var is_closed:bool
 
 func _ready() -> void:
@@ -16,6 +18,7 @@ func _open(sig_door_id) -> void:
 		self.is_closed = false
 		$StaticBody2D/close.hide()
 		$StaticBody2D/open.show()
+		sfx_door.play()
 	
 func _close(sig_door_id) -> void:
 	if sig_door_id == door_id:

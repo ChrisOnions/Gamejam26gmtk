@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://d2db76t77i0px" path="res://assets/64x64 tile.png" id="3_0qepi"]
 [ext_resource type="PackedScene" uid="uid://sx1gjjmdbjyf" path="res://scenes/objects/exit.tscn" id="4_fmg3e"]
 [ext_resource type="PackedScene" uid="uid://cjxe230cnky80" path="res://scenes/entities/sand.tscn" id="5_ftfob"]
+[ext_resource type="AudioStream" uid="uid://dkh0727pie72a" path="res://assets/Audio/SFX/sfx_key.wav" id="6_ftfob"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fmg3e"]
 texture = ExtResource("3_0qepi")
@@ -411,3 +412,6 @@ position = Vector2(857, 126)
 amount = 200
 speed_scale = 0.6
 process_material = SubResource("ParticleProcessMaterial_fmg3e")
+
+[node name="sfx_key" type="AudioStreamPlayer" parent="." unique_id=1503277850]
+stream = ExtResource("6_ftfob")

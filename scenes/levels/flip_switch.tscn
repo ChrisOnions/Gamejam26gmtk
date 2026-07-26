@@ -2,9 +2,16 @@
 
 [ext_resource type="Script" uid="uid://cx0xrt1eg65mi" path="res://scenes/levels/swits.gd" id="1_cvd3w"]
 [ext_resource type="Texture2D" uid="uid://bvxwkqw7p2ryb" path="res://assets/flpi icon.png" id="2_eaaj5"]
+[ext_resource type="AudioStream" uid="uid://d00pg03pitb1j" path="res://assets/Audio/SFX/sfx_door.wav" id="3_eaaj5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ldvr8"]
 size = Vector2(32, 32)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_umcr2"]
+random_pitch = 1.0387391
+random_volume_offset_db = 0.46
+streams_count = 1
+stream_0/stream = ExtResource("3_eaaj5")
 
 [node name="swits" type="Node2D" unique_id=735638387]
 script = ExtResource("1_cvd3w")
@@ -20,6 +27,9 @@ shape = SubResource("RectangleShape2D_ldvr8")
 position = Vector2(3.8146973e-06, 0)
 scale = Vector2(1.0000002, 1)
 texture = ExtResource("2_eaaj5")
+
+[node name="sfx_door" type="AudioStreamPlayer" parent="." unique_id=1627184697]
+stream = SubResource("AudioStreamRandomizer_umcr2")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
