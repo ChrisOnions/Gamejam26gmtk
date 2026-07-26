@@ -106,6 +106,7 @@ bus = &"SFX"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1808222786]
 stream = ExtResource("2_he1sj")
+volume_db = -20.235
 autoplay = true
 
 [node name="ClickSound" type="AudioStreamPlayer" parent="." unique_id=1274318282]

@@ -14,6 +14,9 @@ class_name PLAYER
 @onready var sand_bar_top: TextureProgressBar = $SandBars/SandBarTop
 @onready var sand_bar_bottum: TextureProgressBar = $SandBars/SandBarBottum
 
+var footstep_time: float = 0.0
+const FOOTSTEP_INTERVAL := 0.3
+
 var side_top_sand: float:
 	set(value):
 		side_top_sand = value
@@ -57,6 +60,16 @@ func _physics_process(delta: float) -> void:
 	handle_sand_mechanics(delta)
 	MusicManager.update_intensity(side_top_sand + side_bottum_sand, max_capacity)
 	handle_movement()
+	handle_footsteps(delta)
+	
+func handle_footsteps(delta: float) -> void:
+	if velocity.length() > 10 and can_move and not is_flipping:
+		footstep_time -= delta
+		if footstep_time <= 0.0:
+			Sfxmanager.play("footstep")
+			footstep_time = FOOTSTEP_INTERVAL
+	else:
+		footstep_time = 0.0
 	
 	print(side_top_sand+side_bottum_sand)
 	

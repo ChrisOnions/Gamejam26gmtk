@@ -1,7 +1,6 @@
 [gd_scene format=4 uid="uid://f3lv1gi0q73p"]
 
 [ext_resource type="Script" uid="uid://725tdydghgoa" path="res://scenes/levels/levelOne.gd" id="1_w6h2s"]
-[ext_resource type="AudioStream" uid="uid://dkh0727pie72a" path="res://assets/Audio/SFX/sfx_key.wav" id="2_hsvsk"]
 [ext_resource type="PackedScene" uid="uid://sx1gjjmdbjyf" path="res://scenes/objects/exit.tscn" id="2_ogj6a"]
 [ext_resource type="Texture2D" uid="uid://21xrwmjol2if" path="res://assets/art/New_Piskel12.png" id="2_qvnao"]
 [ext_resource type="PackedScene" uid="uid://cy0vrvj4a15md" path="res://scenes/entities/sand_waterfall.tscn" id="3_anwe6"]
@@ -408,6 +407,8 @@ position = Vector2(-324, 1024)
 scale = Vector2(3.5375, 3.3875)
 sprite_frames = SubResource("SpriteFrames_1bx01")
 animation = &"open"
+frame = 11
+frame_progress = 1.0
 offset = Vector2(0, -80)
 script = ExtResource("8_fcb7b")
 
@@ -442,9 +443,6 @@ rotation = 3.0867958
 scale = Vector2(0.43564385, 0.36138615)
 texture = ExtResource("9_ov8fk")
 script = ExtResource("10_pmra4")
-
-[node name="sfx_key" type="AudioStreamPlayer" parent="key" unique_id=1136132669]
-stream = ExtResource("2_hsvsk")
 
 [node name="Area2D" type="Area2D" parent="key" unique_id=1828460501]
 

@@ -7,14 +7,18 @@ var sounds := {
 	"waterfall": preload("res://assets/Audio/SFX/sfx_waterfall.wav"),
 	"sand": preload("res://assets/Audio/SFX/sfx_sand.wav"),
 	"landing": preload("res://assets/Audio/SFX/Landing.wav"),
+	"footstep": preload("res://assets/Audio/SFX/sfx_footsteps.wav"),
+	"exit": preload("res://assets/Audio/SFX/sfx_exit.wav"),
+	"bigdoor": preload("res://assets/Audio/SFX/sfx_bigdoor.wav"),
 
 }
 
 var volumes := {
 	"door": 0.0,
-	"waterfall": 0.0,
+	"waterfall": -10.0,
 	"key": 0.0,
-	"powerup": -5.0,
+	"powerup": -7.0,
+	"footstep": -20.0 
 }
 
 func play(name: String) -> void:
@@ -24,6 +28,7 @@ func play(name: String) -> void:
 	var p := AudioStreamPlayer.new()
 	add_child(p)
 	p.stream = sounds[name]
+	p.volume_db = volumes.get(name, 0.0)
 	p.play()
 	p.finished.connect(p.queue_free)
 
@@ -38,6 +43,7 @@ func play_loop(name: String) -> void:
 	var p := AudioStreamPlayer.new()
 	add_child(p)
 	p.stream = sounds[name]
+	p.volume_db = volumes.get(name, 0.0)
 	p.play()
 	_loops[name] = p
 
