@@ -94,4 +94,5 @@ load_level4={
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+renderer/rendering_method.mobile="gl_compatibility"
 environment/defaults/default_clear_color=Color(0.06469653, 0.064696535, 0.0646965, 1)
