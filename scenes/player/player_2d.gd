@@ -72,20 +72,9 @@ func handle_footsteps(delta: float) -> void:
 		footstep_time = 0.0
 	
 	print(side_top_sand+side_bottum_sand)
-	
+
 	if Input.is_action_just_pressed("Interact"):
 		flip()
-	if Input.is_action_just_pressed("load_level0"):
-		EventBus.load_level.emit(0)
-	if Input.is_action_just_pressed("load_level1"):
-		EventBus.load_level.emit(1)
-	if Input.is_action_just_pressed("load_level2"):
-		EventBus.load_level.emit(2)
-	if Input.is_action_just_pressed("load_level3"):
-		EventBus.load_level.emit(3)
-	if Input.is_action_just_pressed("load_level4"):
-		EventBus.load_level.emit(4)
-
 func handle_sand_mechanics(delta: float) -> void:
 	side_top_sand -= flow_rate*delta  # removs sand from top
 	
