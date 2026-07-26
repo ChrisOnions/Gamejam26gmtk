@@ -1,12 +1,6 @@
 [gd_scene format=3 uid="uid://bsd3jifke5tk8"]
 
 [ext_resource type="Script" uid="uid://bi8xm0qcm7agj" path="res://scripts/restart_game.gd" id="1_xeevv"]
-[ext_resource type="AudioStream" uid="uid://qnudfejmuvao" path="res://assets/Audio/music/Track3_TitleScreen.wav" id="2_wqhvx"]
-
-[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_ua4ly"]
-fade_time = 0.0
-stream_count = 1
-stream_0 = ExtResource("2_wqhvx")
 
 [node name="GameOver" type="Control" unique_id=574529546]
 layout_mode = 3
@@ -54,10 +48,5 @@ bbcode_enabled = true
 text = "[wave amp=20.0 freq=10.0][color=wheat]Your time ran out[/color][/wave]"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2143188399]
-stream = SubResource("AudioStreamPlaylist_ua4ly")
-autoplay = true
-bus = &"Music"
 
 [connection signal="pressed" from="BoxContainer/VBoxContainer/Restart_B" to="." method="onbuttonpressed"]

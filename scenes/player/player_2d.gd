@@ -31,6 +31,7 @@ func _ready() -> void:
 	side_a_sand = max_capacity / 2.0
 	side_b_sand = 0.0
 	GameManager.player = self
+	MusicManager.play_gameplay()
 	$AnimatedSprite2D.sprite_frames.set_animation_loop("Flip", false)
 	
 	# Initialize sand_bar properties
