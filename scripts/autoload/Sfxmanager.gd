@@ -10,6 +10,7 @@ var sounds := {
 	"footstep": preload("res://assets/Audio/SFX/sfx_footsteps.wav"),
 	"exit": preload("res://assets/Audio/SFX/sfx_exit.wav"),
 	"bigdoor": preload("res://assets/Audio/SFX/sfx_bigdoor.wav"),
+	"click": preload("res://assets/Audio/SFX/sfx_menuclick.wav"),
 
 }
 
