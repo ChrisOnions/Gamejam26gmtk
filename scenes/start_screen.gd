@@ -30,20 +30,21 @@ func _on_button_hover() -> void:
 	hover_sound.play()
 	
 func _on_start_b_button_down() -> void:
-	click_sound.play()
+	Sfxmanager.play("click")
 	get_tree().change_scene_to_packed(MAIN)
 
 func _on_options_b_button_down() -> void:
-	click_sound.play()
+	Sfxmanager.play("click")
 	box_container.visible = false
 	options_panel.visible = true
 	print(DisplayServer.window_get_size())
 
 func _on_exit_b_button_down() -> void:
-	click_sound.play()
+	Sfxmanager.play("click")
 	get_tree().quit()
 
 func _on_back_b_button_down() -> void:
+	Sfxmanager.play("click")
 	box_container.visible = true
 	options_panel.visible = false
 
