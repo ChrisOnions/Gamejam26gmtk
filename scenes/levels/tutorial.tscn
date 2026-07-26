@@ -35,10 +35,10 @@ scale_max = 4.0
 script = ExtResource("1_u4f7j")
 
 [node name="Label" type="Label" parent="." unique_id=861729492]
-offset_left = 261.0
-offset_top = -263.0
-offset_right = 830.0
-offset_bottom = -101.0
+offset_left = 182.0
+offset_top = -334.0
+offset_right = 751.0
+offset_bottom = -172.0
 theme_override_colors/font_color = Color(0.07123137, 0.07123139, 0.07123137, 1)
 theme_override_font_sizes/font_size = 32
 text = "You will loose sand 
@@ -49,14 +49,17 @@ texture_filter = 1
 position = Vector2(1836, -49)
 
 [node name="Label3" type="Label" parent="Sand_Waterfall" unique_id=1277132239]
-offset_left = -126.999985
+offset_left = -128.99998
 offset_top = 220.0
-offset_right = 293.0
+offset_right = 345.0
 offset_bottom = 521.0
 theme_override_colors/font_color = Color(0.07123137, 0.07123139, 0.07123137, 1)
 theme_override_font_sizes/font_size = 32
 text = "Sand waterfall will 
-refill sand to full"
+refill sand to full
+you have a hole on one end to 
+refill
+"
 
 [node name="Sand_Waterfall2" parent="." unique_id=634089321 instance=ExtResource("2_u4f7j")]
 position = Vector2(-468, 4)
@@ -113,6 +116,16 @@ offset_bottom = -87.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "Press E to FLIP"
+
+[node name="Label4" type="Label" parent="." unique_id=1566599876]
+texture_filter = 1
+offset_left = 2021.0
+offset_top = -260.0
+offset_right = 2243.0
+offset_bottom = -215.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "If sand is not flowing you can not move."
 
 [node name="Label3" type="Label" parent="." unique_id=887897970]
 texture_filter = 1

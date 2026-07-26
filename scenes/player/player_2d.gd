@@ -10,9 +10,8 @@ class_name PLAYER
 @export var current_level: int = 1
 
 @onready var canvas_layer: CanvasLayer = $Camera2D/CanvasLayer
-@onready var sand_bars: Node2D = $SandBars # Ensure this matches your Node2D's exact name in the scene tree
-@onready var top_bar: TextureProgressBar = $SandBars/TopBar
-@onready var bottom_bar: TextureProgressBar = $SandBars/BottomBar
+@onready var sand_bars: Node2D = $SandBars # Parent node holding the texture bar
+@onready var sand_bar: TextureProgressBar = $SandBars/SandBar
 
 var side_a_sand: float
 var side_b_sand: float
@@ -33,6 +32,10 @@ func _ready() -> void:
 	side_b_sand = 0.0
 	GameManager.player = self
 	$AnimatedSprite2D.sprite_frames.set_animation_loop("Flip", false)
+	
+	# Initialize sand_bar properties
+	sand_bar.max_value = max_capacity
+	sand_bar.fill_mode = TextureProgressBar.FILL_TOP_TO_BOTTOM
 
 func _process(delta: float) -> void:
 	if side_a_sand <= 0.0 and side_b_sand <= 0.0 and not gameover:
@@ -43,6 +46,7 @@ func _process(delta: float) -> void:
 		add_child(spawnedbutton)
 
 func _physics_process(delta: float) -> void:
+	
 	ui_update()
 	handle_sand_mechanics(delta)
 	MusicManager.update_intensity(side_a_sand + side_b_sand, max_capacity)
@@ -60,6 +64,7 @@ func _physics_process(delta: float) -> void:
 		EventBus.load_level.emit(3)
 	if Input.is_action_just_pressed("load_level4"):
 		EventBus.load_level.emit(4)
+
 func handle_sand_mechanics(delta: float) -> void:
 	var prev_a = side_a_sand
 	var prev_b = side_b_sand
@@ -96,21 +101,15 @@ func handle_sand_mechanics(delta: float) -> void:
 		grace_time_left = 0.0
 
 func flip() -> void:
-	# Ignore flip inputs if already mid-animation
 	if is_flipping:
 		return
-		
 	is_flipping = true
 	is_flipped = not is_flipped
-	
-	# Start turning the Node2D parent
 	animate_bar_rotation(1.0)
-	
 	$AnimatedSprite2D.play("Flip")
 	await $AnimatedSprite2D.animation_finished
-	
-	$AnimatedSprite2D.play("idle hole up")
-	is_flipping = false # Allow player to flip again
+	#$AnimatedSprite2D.play("idle hole up")
+	is_flipping = false
 
 	print("Flipped! Inverted (Leaking Side A): ", is_flipped)
 	EventBus.player_flip.emit()
@@ -126,11 +125,14 @@ func handle_movement() -> void:
 		velocity = input_dir * SPEED
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, SPEED)
+	update_animation(input_dir)
 	move_and_slide()
 
 func add_sand(amount: float = 1.0) -> void:
 	max_capacity += amount
-	canvas_layer.update_sand_ui()
+	if canvas_layer and canvas_layer.has_method("update_sand_ui"):
+		canvas_layer.update_sand_ui()
+		
 	if not is_flipped:
 		side_a_sand = min(side_a_sand + amount, max_capacity / 2.0)
 	else:
@@ -147,29 +149,49 @@ func player_death() -> void:
 	queue_free()
 
 func ui_update() -> void:
-	top_bar.max_value = max_capacity / 2.0
-	bottom_bar.max_value = max_capacity / 2.0
+	sand_bar.max_value = max_capacity
 	
-	# Since rotation snaps back to 0.0, top_bar remains physical TOP
-	# and bottom_bar remains physical BOTTOM on screen.
-	if not is_flipped:
-		top_bar.value = side_a_sand
-		bottom_bar.value = side_b_sand
-	else:
-		top_bar.value = side_b_sand
-		bottom_bar.value = side_a_sand
+	# Total remaining sand visible across both sides
+	sand_bar.value = side_a_sand + side_b_sand
 
-## Rotates the Node2D parent 180 degrees over a duration, then snaps back to 0.
-func animate_bar_rotation(duration: float = 1.1) -> void:
-	# Reset starting point to 0.0 so degrees don't build up endlessly
+## Rotates the Node2D parent 180 degrees over a duration, updates fill mode, and resets rotation.
+func animate_bar_rotation(duration: float = 9.1) -> void:
 	sand_bars.rotation_degrees = 0.0
 
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_SINE)
 	tween.set_ease(Tween.EASE_IN_OUT)
 
-	# 1. Smoothly spin 180 degrees
+	# Spin 180 degrees
 	tween.tween_property(sand_bars, "rotation_degrees", 180.0, duration)
 	
-	# 2. Instantly reset rotation back to 0.0 at the end of the spin
-	tween.tween_callback(func(): sand_bars.rotation_degrees = 0.0)
+	# Swap fill mode halfway through or at the end to match visual direction, then reset transform
+	tween.tween_callback(func():
+		sand_bars.rotation_degrees = 0.0
+		if is_flipped:
+			sand_bar.fill_mode = TextureProgressBar.FILL_BOTTOM_TO_TOP
+		else:
+			sand_bar.fill_mode = TextureProgressBar.FILL_TOP_TO_BOTTOM
+	)
+
+func update_animation(input_dir: Vector2) -> void:
+	if is_flipping:
+		return
+	# Choose suffix based on flipped state
+	var suffix: String = "" if is_flipped else "_hole_up"
+	# Priority given to dominant movement direction
+	if input_dir != Vector2.ZERO:
+		if abs(input_dir.x) > abs(input_dir.y):
+			if input_dir.x > 0:
+				$AnimatedSprite2D.play("walk_left")
+				$AnimatedSprite2D.flip_h = true
+			else:
+				$AnimatedSprite2D.play("walk_left")
+		else:
+			if input_dir.y > 0:
+				$AnimatedSprite2D.play("walk_down" + suffix)
+			else:
+				$AnimatedSprite2D.play("walk_up" + suffix)
+	else:
+		# Return to appropriate idle animation when stopping
+		$AnimatedSprite2D.play("idle" + suffix)
