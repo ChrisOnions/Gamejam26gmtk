@@ -32,6 +32,7 @@ var gameover: bool = false
 var grace_time_left: float = 0.0
 var is_sand_moving: bool = false
 var has_key: bool = false
+var can_move: bool = true
 
 const SPEED = 300.0
 var resetbutton = preload("res://scenes/game_over.tscn")
@@ -50,14 +51,6 @@ func _ready() -> void:
 	sand_bar_bottum.step = 0.05
 	sand_bar_top.fill_mode = TextureProgressBar.FILL_BOTTOM_TO_TOP
 	sand_bar_bottum.fill_mode = TextureProgressBar.FILL_BOTTOM_TO_TOP
-
-func _process(delta: float) -> void:
-	if side_top_sand <= 0 and not gameover:
-		gameover = true
-		MusicManager.stop_music()
-		print("Spawning reset button")
-		var spawnedbutton = resetbutton.instantiate()
-		add_child(spawnedbutton)
 
 func _physics_process(delta: float) -> void:
 	#ui_update()
@@ -101,8 +94,9 @@ func handle_sand_mechanics(delta: float) -> void:
 				if grace_time_left <= 0.0:
 					player_death()
 		else:
-			flip()
+			can_move = false
 	else:
+		can_move = true
 		grace_time_left = 0.0
 		
 	side_bottum_sand += flow_rate*delta  # add sand top bottum
@@ -113,7 +107,7 @@ func handle_sand_mechanics(delta: float) -> void:
 	side_bottum_sand = side_bottum_sand
 	side_top_sand = side_top_sand
 		
-	print(side_top_sand, "    ", side_bottum_sand, "   ", max_capacity, "    ", is_hole_on_top)
+	#print(side_top_sand, "    ", side_bottum_sand, "   ", max_capacity, "    ", is_hole_on_top)
 	
 func flip() -> void:
 	if is_flipping:
@@ -145,6 +139,8 @@ func flip() -> void:
 func handle_movement() -> void:
 	if is_flipping:
 		return
+	if not can_move:
+		return
 		
 	var input_dir := Input.get_vector("Move_Left", "Move_Right", "Move_UP", "Move_Down")
 	if input_dir:
@@ -171,7 +167,12 @@ func stop_refill() -> void:
 
 func player_death() -> void:
 	EventBus.player_died.emit()
-	queue_free()
+	gameover = true
+	MusicManager.stop_music()
+	print("Spawning reset button")
+	var spawnedbutton = resetbutton.instantiate()
+	add_child(spawnedbutton)
+	
 
 ## Rotates the Node2D parent 180 degrees over a duration, updates fill mode, and resets rotation.
 func animate_bar_rotation(duration: float = 9.1) -> void:
@@ -194,7 +195,7 @@ func update_animation(input_dir: Vector2) -> void:
 	if is_flipping:
 		return
 	# Choose suffix based on flipped state
-	var suffix: String = "" if is_hole_on_top else "_hole_up"
+	var suffix: String = "" if not is_hole_on_top else "_hole_up"
 	# Priority given to dominant movement direction
 	if input_dir != Vector2.ZERO:
 		if abs(input_dir.x) > abs(input_dir.y):

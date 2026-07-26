@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://b3iwxdwn2pf5e"]
 
 [ext_resource type="Texture2D" uid="uid://foir07frniow" path="res://assets/sand_texture.png" id="1_tqnj0"]
-[ext_resource type="Texture2D" uid="uid://c5vlhohjkjrab" path="res://assets/stone_gatet.png" id="2_dwyms"]
+[ext_resource type="Texture2D" uid="uid://5soq3llwd6l4" path="res://assets/stone_gatet.png" id="2_dwyms"]
 [ext_resource type="Script" uid="uid://crgu3aj5pt0ab" path="res://scenes/levels/door.gd" id="3_6xwso"]
 [ext_resource type="Texture2D" uid="uid://5c3iked5laur" path="res://assets/key.png" id="4_5ke18"]
 [ext_resource type="Script" uid="uid://n0w6d6qnp5x" path="res://scenes/levels/key.gd" id="5_j14br"]
