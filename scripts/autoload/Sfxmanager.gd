@@ -29,6 +29,7 @@ func play(name: String) -> void:
 	add_child(p)
 	p.stream = sounds[name]
 	p.volume_db = volumes.get(name, 0.0)
+	p.bus = "SFX"
 	p.play()
 	p.finished.connect(p.queue_free)
 
@@ -44,6 +45,7 @@ func play_loop(name: String) -> void:
 	add_child(p)
 	p.stream = sounds[name]
 	p.volume_db = volumes.get(name, 0.0)
+	p.bus = "SFX"
 	p.play()
 	_loops[name] = p
 

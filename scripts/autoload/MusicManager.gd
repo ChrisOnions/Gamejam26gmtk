@@ -43,6 +43,7 @@ var quiet_volume := -40.0      # effectively silent
 var fade_time := 1.0           # fade length in seconds (tweak to taste)
 
 func _ready():
+	bus = "Music"
 	for t in chill_tracks:
 		weights.append(1.0)
 	finished.connect(_on_finished)

@@ -108,6 +108,7 @@ bus = &"SFX"
 stream = ExtResource("2_he1sj")
 volume_db = -20.235
 autoplay = true
+bus = &"Music"
 
 [node name="ClickSound" type="AudioStreamPlayer" parent="." unique_id=1274318282]
 stream = SubResource("AudioStreamWAV_r2jwc")
