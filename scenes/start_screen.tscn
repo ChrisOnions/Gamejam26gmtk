@@ -1,8 +1,8 @@
 [gd_scene format=4 uid="uid://mj8usmvfv3we"]
 
 [ext_resource type="Script" uid="uid://bt0qojpw6rla0" path="res://scenes/start_screen.gd" id="1_tx5wa"]
-[ext_resource type="AudioStream" uid="uid://bcrjv3wruhpkc" path="res://assets/Audio/music/Track3_TitleScreen.wav" id="2_he1sj"]
-[ext_resource type="AudioStream" uid="uid://7r0dgwpykyoh" path="res://assets/Audio/SFX/music_box_wind_click_01_19.wav" id="2_r2jwc"]
+[ext_resource type="AudioStream" uid="uid://qnudfejmuvao" path="res://assets/Audio/music/Track3_TitleScreen.wav" id="2_he1sj"]
+[ext_resource type="AudioStream" uid="uid://b7sas07sk1yqd" path="res://assets/Audio/SFX/music_box_wind_click_01_19.wav" id="2_r2jwc"]
 [ext_resource type="Texture2D" uid="uid://crd1sb0ru8kri" path="res://assets/Title Bacgkground.png" id="3_he1sj"]
 
 [sub_resource type="AudioStreamWAV" id="AudioStreamWAV_r2jwc"]
@@ -46,6 +46,46 @@ text = "Options"
 layout_mode = 2
 text = "Exit"
 
+[node name="Options_panel" type="BoxContainer" parent="." unique_id=807141177]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Options_panel" unique_id=128147398]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Options_panel/VBoxContainer" unique_id=1119680210]
+layout_mode = 2
+text = "Music"
+
+[node name="Music_Slider" type="HSlider" parent="Options_panel/VBoxContainer" unique_id=1015509223]
+layout_mode = 2
+max_value = 0.4
+step = 0.05
+value = 0.4
+
+[node name="Label2" type="Label" parent="Options_panel/VBoxContainer" unique_id=934355244]
+layout_mode = 2
+text = "Sound effects"
+
+[node name="sfx_Slider" type="HSlider" parent="Options_panel/VBoxContainer" unique_id=1732419436]
+layout_mode = 2
+max_value = 2.0
+step = 0.05
+value = 0.4
+
+[node name="Back_B" type="Button" parent="Options_panel/VBoxContainer" unique_id=1279893380]
+layout_mode = 2
+text = "Back
+"
+
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=959297700]
 layout_mode = 0
 offset_left = 335.0
@@ -79,3 +119,6 @@ texture = ExtResource("3_he1sj")
 [connection signal="button_down" from="BoxContainer/VBoxContainer/Start_B" to="." method="_on_start_b_button_down"]
 [connection signal="button_down" from="BoxContainer/VBoxContainer/Options_B" to="." method="_on_options_b_button_down"]
 [connection signal="button_down" from="BoxContainer/VBoxContainer/Exit_B" to="." method="_on_exit_b_button_down"]
+[connection signal="value_changed" from="Options_panel/VBoxContainer/Music_Slider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="Options_panel/VBoxContainer/sfx_Slider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="button_down" from="Options_panel/VBoxContainer/Back_B" to="." method="_on_back_b_button_down"]

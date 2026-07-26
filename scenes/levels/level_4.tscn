@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cjxe230cnky80" path="res://scenes/entities/sand.tscn" id="4_glw47"]
 [ext_resource type="PackedScene" uid="uid://c73bei1xg6jjx" path="res://scenes/objects/door_to_flip_switch.tscn" id="5_4wsov"]
 [ext_resource type="PackedScene" uid="uid://bvmi1h211nx3m" path="res://scenes/levels/flip_switch.tscn" id="6_qvnao"]
-[ext_resource type="Texture2D" uid="uid://c5vlhohjkjrab" path="res://assets/stone_gatet.png" id="7_hsvsk"]
+[ext_resource type="Texture2D" uid="uid://5soq3llwd6l4" path="res://assets/stone_gatet.png" id="7_hsvsk"]
 [ext_resource type="Script" uid="uid://crgu3aj5pt0ab" path="res://scenes/levels/door.gd" id="8_fcb7b"]
 [ext_resource type="Texture2D" uid="uid://5c3iked5laur" path="res://assets/key.png" id="9_ov8fk"]
 [ext_resource type="Script" uid="uid://n0w6d6qnp5x" path="res://scenes/levels/key.gd" id="10_pmra4"]
@@ -222,6 +222,13 @@ size = Vector2(116.18373, 28.597778)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_beuva"]
 size = Vector2(71.15912, 163.26024)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qvnao"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(2000, 2000, 1)
+gravity = Vector3(0, 50, 0)
+scale_max = 4.0
 
 [node name="level 4" type="Node2D" unique_id=1311750211]
 script = ExtResource("1_w6h2s")
@@ -442,6 +449,13 @@ script = ExtResource("10_pmra4")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="key/Area2D" unique_id=1048628877]
 position = Vector2(4.5908847, 9.684925)
 shape = SubResource("RectangleShape2D_beuva")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1187966241]
+z_index = -3
+position = Vector2(857, 126)
+amount = 200
+speed_scale = 0.6
+process_material = SubResource("ParticleProcessMaterial_qvnao")
 
 [connection signal="body_entered" from="Door/Area2D" to="Door" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Door/Area2D" to="Door" method="_on_area_2d_body_exited"]
