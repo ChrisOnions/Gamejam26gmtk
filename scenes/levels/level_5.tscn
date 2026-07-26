@@ -292,6 +292,9 @@ script = ExtResource("5_j14br")
 position = Vector2(4.5908847, 9.684925)
 shape = SubResource("RectangleShape2D_iu1q5")
 
+[node name="sfx_key" type="AudioStreamPlayer" parent="key" unique_id=1793212583]
+stream = ExtResource("11_dwyms")
+
 [node name="swits" parent="." unique_id=735638387 instance=ExtResource("6_0y7y4")]
 position = Vector2(-1832, 468)
 door_id_open = 2

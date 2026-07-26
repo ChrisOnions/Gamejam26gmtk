@@ -2,9 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://c73bei1xg6jjx" path="res://scenes/objects/door_to_flip_switch.tscn" id="1_n2o8m"]
 [ext_resource type="PackedScene" uid="uid://bvmi1h211nx3m" path="res://scenes/levels/flip_switch.tscn" id="2_yh8x5"]
+[ext_resource type="AudioStream" uid="uid://dkh0727pie72a" path="res://assets/Audio/SFX/sfx_key.wav" id="3_yh8x5"]
 
 [node name="flip switch and door" type="Node2D" unique_id=2038947610]
 
 [node name="door" parent="." unique_id=1344435578 instance=ExtResource("1_n2o8m")]
 
 [node name="swits" parent="." unique_id=735638387 instance=ExtResource("2_yh8x5")]
+
+[node name="sfx_key" type="AudioStreamPlayer" parent="." unique_id=882949027]
+stream = ExtResource("3_yh8x5")

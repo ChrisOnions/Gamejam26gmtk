@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cw5vlfadnrgf4" path="res://scenes/entities/sand.gd" id="1_v7ygb"]
 [ext_resource type="Texture2D" uid="uid://xygkdk3brfpy" path="res://assets/SandBuble.png" id="2_v7ygb"]
 [ext_resource type="Texture2D" uid="uid://gf0gmr84l5bt" path="res://assets/art/light.png" id="3_3wrx6"]
-[ext_resource type="AudioStream" uid="uid://bhu0se0o7l0kp" path="res://assets/Audio/SFX/Powerup.wav" id="4_cbmid"]
+[ext_resource type="AudioStream" uid="uid://bhu0se0o7l0kp" path="res://assets/Audio/SFX/sfx_sand.wav" id="4_cbmid"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l0ub4"]
 radius = 32.01562
