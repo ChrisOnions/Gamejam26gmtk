@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://tc0tit536i4v" path="res://scenes/entities/sand_waterfall.gd" id="1_20y5t"]
 [ext_resource type="Texture2D" uid="uid://3iqmi8ngtgfj" path="res://assets/SandWaterall.png" id="2_20y5t"]
+[ext_resource type="Texture2D" uid="uid://gf0gmr84l5bt" path="res://assets/art/light.png" id="3_ywkib"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l0ub4"]
 size = Vector2(293, 283)
@@ -20,6 +21,12 @@ texture = ExtResource("2_20y5t")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1679948916]
 texture_filter = 1
 shape = SubResource("RectangleShape2D_l0ub4")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1305511802]
+position = Vector2(-31.999939, 13.4999695)
+scale = Vector2(3.5585935, 2.0019531)
+energy = 0.2
+texture = ExtResource("3_ywkib")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -13,6 +13,7 @@ func _ready() -> void:
 	completed_lable.z_index = 100
 	
 func start_loding_level(id:int) -> void:
+	GameManager.player.has_key = false
 	EventBus.load_level.emit(id)
 	level_id_lable.text = "level" + str(id-1)
 	level_id_lable.show()

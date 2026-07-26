@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cw5vlfadnrgf4" path="res://scenes/entities/sand.gd" id="1_v7ygb"]
 [ext_resource type="Texture2D" uid="uid://xygkdk3brfpy" path="res://assets/SandBuble.png" id="2_v7ygb"]
+[ext_resource type="Texture2D" uid="uid://gf0gmr84l5bt" path="res://assets/art/light.png" id="3_3wrx6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l0ub4"]
 radius = 32.01562
@@ -19,5 +20,9 @@ texture = ExtResource("2_v7ygb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=917022528]
 shape = SubResource("CircleShape2D_l0ub4")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1701117023]
+energy = 0.12
+texture = ExtResource("3_3wrx6")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

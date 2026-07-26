@@ -37,7 +37,8 @@ func lode_level() -> void:  # loads all the childer of the level
 		if obj is CanvasItem:
 			obj.visible = true
 		obj.process_mode = Node.PROCESS_MODE_INHERIT
-	
+
+
 func get_all_children(node:Node) -> Array[Node]:
 	var resolt:Array[Node] = []
 	for childe in node.get_children():

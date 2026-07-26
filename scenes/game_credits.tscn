@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://cis24dmqm50lu"]
+
+[node name="Game_Credits" type="Node2D" unique_id=1856581109]
+position = Vector2(589, 294)
+
+[node name="BoxContainer" type="BoxContainer" parent="." unique_id=289503502]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BoxContainer" unique_id=687649618]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="Programing" type="RichTextLabel" parent="BoxContainer/VBoxContainer" unique_id=1317067522]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][font_size=36][color=#FF007F][u]CREDITS[/u][/color][/font_size][/center]
+
+[color=#00E5FF][b]PROGRAMMING[/b][/color]
+  [color=#E0E0E0]• Lead Developer:[/color] Chris
+  [color=#E0E0E0]• Developer:[/color] Jens
+
+[color=#FF9F1C][b]ART & VISUALS[/b][/color]
+  [color=#E0E0E0]• Lead Artist:[/color] Ivan
+  [color=#E0E0E0]• Additional Art:[/color] Chris
+
+[color=#2EC4B6][b]MUSIC & AUDIO[/b][/color]
+  [color=#E0E0E0]• Music & SFX:[/color] Kwamena - AfroNord Interactive
+
+[color=#E71D36][b]ASSISTANCE & PLANNING[/b][/color]
+  [color=#E0E0E0]• Project Planning:[/color] Vndkrure"
+fit_content = true
+
+[node name="Label2" type="Label" parent="BoxContainer/VBoxContainer" unique_id=1463358547]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="BoxContainer/VBoxContainer" unique_id=1634591105]
+layout_mode = 2
+text = "Thanks for playing out jam game."
+
+[node name="Exit_B" type="Button" parent="BoxContainer/VBoxContainer" unique_id=1045471692]
+layout_mode = 2
+text = "Exit"
