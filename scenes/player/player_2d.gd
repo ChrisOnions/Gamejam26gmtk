@@ -58,6 +58,8 @@ func _physics_process(delta: float) -> void:
 	MusicManager.update_intensity(side_top_sand + side_bottum_sand, max_capacity)
 	handle_movement()
 	
+	print(side_top_sand+side_bottum_sand)
+	
 	if Input.is_action_just_pressed("Interact"):
 		flip()
 	if Input.is_action_just_pressed("load_level0"):
@@ -98,10 +100,11 @@ func handle_sand_mechanics(delta: float) -> void:
 	else:
 		can_move = true
 		grace_time_left = 0.0
-		
-	side_bottum_sand += flow_rate*delta  # add sand top bottum
-	if side_bottum_sand >= max_capacity / 2:
-		side_bottum_sand = max_capacity / 2 
+	
+	if side_top_sand > 0:
+		side_bottum_sand += flow_rate*delta  # add sand top bottum
+		if side_bottum_sand >= max_capacity / 2:
+			side_bottum_sand = max_capacity / 2 
 		
 	#temp
 	side_bottum_sand = side_bottum_sand
