@@ -5,7 +5,7 @@ const MAIN = preload("uid://dq11kn2vyrvdt")
 @onready var click_sound: AudioStreamPlayer = $ClickSound
 
 func _ready() -> void:
-	rich_text_label.text = "[wave amp=20.0 freq=10.0][color=wheat]Game name here[/color][/wave]"
+	rich_text_label.text = "[wave amp=20.0 freq=10.0][color=wheat]Sands of Flippy[/color][/wave]"
 	
 	MusicManager.stop_music()
 

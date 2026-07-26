@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bsd3jifke5tk8"]
 
 [ext_resource type="Script" uid="uid://bi8xm0qcm7agj" path="res://scripts/restart_game.gd" id="1_xeevv"]
-[ext_resource type="AudioStream" uid="uid://bcrjv3wruhpkc" path="res://assets/Audio/music/Track3_TitleScreen.wav" id="2_wqhvx"]
+[ext_resource type="AudioStream" uid="uid://qnudfejmuvao" path="res://assets/Audio/music/Track3_TitleScreen.wav" id="2_wqhvx"]
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_ua4ly"]
 fade_time = 0.0
