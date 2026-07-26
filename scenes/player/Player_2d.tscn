@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b08fm8b7lmyic" path="res://scenes/player/player_2d.gd" id="1_as2q7"]
 [ext_resource type="Texture2D" uid="uid://xygkdk3brfpy" path="res://assets/SandBuble.png" id="2_bl5na"]
 [ext_resource type="Script" uid="uid://b45ltsn5nmodv" path="res://scenes/player/PlayerCameraCanvas.gd" id="2_qfiif"]
+[ext_resource type="Texture2D" uid="uid://kb3louppv7lb" path="res://assets/Hourglass_sand-back.png" id="4_apnjw"]
 [ext_resource type="Texture2D" uid="uid://8c0q4p5akieh" path="res://assets/Hourglass_sand.png" id="5_hk302"]
 [ext_resource type="Texture2D" uid="uid://c8gobv1ldd0kr" path="res://assets/art/PlayerStates/mini_flip.png" id="5_th0d2"]
 [ext_resource type="Texture2D" uid="uid://b6y2648wcphj5" path="res://assets/art/PlayerStates/Hourglass_Player_Walking_Hole_Up2.png" id="7_u6d8m"]
@@ -10,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b7gdn62ba1kx1" path="res://assets/art/PlayerStates/Hourglass_Player_Walking_Hole_Up1.png" id="8_th0d2"]
 [ext_resource type="Texture2D" uid="uid://drgx1s08x63u7" path="res://assets/art/PlayerStates/Hourglass_Player_Walking_Hole_Up_Side1.png" id="9_ahq3u"]
 [ext_resource type="Texture2D" uid="uid://csywp0xpg6rrb" path="res://assets/art/PlayerStates/Hourglass_Player_Walking_Hole_Up21.png" id="10_ahq3u"]
+[ext_resource type="Texture2D" uid="uid://gf0gmr84l5bt" path="res://assets/art/light.png" id="11_ahq3u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o5qli"]
 size = Vector2(300, 324)
@@ -339,6 +341,7 @@ scale = Vector2(0.27, 0.27)
 max_value = 30.0
 value = 30.0
 fill_mode = 3
+texture_under = ExtResource("4_apnjw")
 texture_progress = ExtResource("5_hk302")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=192637740]
@@ -360,3 +363,9 @@ offset_left = 65.0
 offset_top = 1.0
 offset_right = 104.0
 offset_bottom = 28.0
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1240032849]
+position = Vector2(9.094947e-13, 1)
+scale = Vector2(1.65625, 0.95806825)
+energy = 0.5
+texture = ExtResource("11_ahq3u")

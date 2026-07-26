@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://4q14oj8qo07f" path="res://exit.gd" id="1_ilbk5"]
 [ext_resource type="Texture2D" uid="uid://cghpb1ckkhpx2" path="res://assets/level_Transition.png" id="2_j5c87"]
+[ext_resource type="Texture2D" uid="uid://gf0gmr84l5bt" path="res://assets/art/light.png" id="3_j5c87"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ii5v"]
 size = Vector2(128, 127)
@@ -19,5 +20,11 @@ shape = SubResource("RectangleShape2D_7ii5v")
 position = Vector2(1, -1)
 scale = Vector2(0.5299097, 0.43000004)
 texture = ExtResource("2_j5c87")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=805220526]
+position = Vector2(-31.999939, 13.4999695)
+scale = Vector2(3.5585935, 2.0019531)
+energy = 0.2
+texture = ExtResource("3_j5c87")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

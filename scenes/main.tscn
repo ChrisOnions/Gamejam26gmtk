@@ -39,3 +39,6 @@ id = 5
 
 [node name="GameOver" parent="." unique_id=568980725 instance=ExtResource("6_tefeu")]
 visible = false
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1261036035]
+color = Color(0.3741397, 0.37413904, 0.37413958, 1)
