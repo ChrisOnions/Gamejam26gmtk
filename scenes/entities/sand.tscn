@@ -3,9 +3,16 @@
 [ext_resource type="Script" uid="uid://cw5vlfadnrgf4" path="res://scenes/entities/sand.gd" id="1_v7ygb"]
 [ext_resource type="Texture2D" uid="uid://xygkdk3brfpy" path="res://assets/SandBuble.png" id="2_v7ygb"]
 [ext_resource type="Texture2D" uid="uid://gf0gmr84l5bt" path="res://assets/art/light.png" id="3_3wrx6"]
+[ext_resource type="AudioStream" uid="uid://bhu0se0o7l0kp" path="res://assets/Audio/SFX/Powerup.wav" id="4_cbmid"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l0ub4"]
 radius = 32.01562
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7irde"]
+random_pitch = 1.0785427
+random_volume_offset_db = 0.36
+streams_count = 1
+stream_0/stream = ExtResource("4_cbmid")
 
 [node name="Sand" type="Node2D" unique_id=36391409 groups=["Collectables"]]
 script = ExtResource("1_v7ygb")
@@ -24,5 +31,9 @@ shape = SubResource("CircleShape2D_l0ub4")
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1701117023]
 energy = 0.12
 texture = ExtResource("3_3wrx6")
+
+[node name="sfx_powerup" type="AudioStreamPlayer" parent="." unique_id=780712815]
+stream = SubResource("AudioStreamRandomizer_7irde")
+bus = &"SFX"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
